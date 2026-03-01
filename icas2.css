@@ -1,0 +1,61 @@
+body {background-image: url(/icasback.jpg);
+      background-attachment: fixed;
+      font-size:100%;}
+#main{  
+ 
+  padding: 5%;
+  border: 5px ridge #8b4513;
+  background: #faebd7;}
+
+
+#main a:link
+       {color: #600000;} 
+        
+
+#main a:visited 
+       {color: #600000;}
+
+#main a:hover 
+       {color: #faebd7; 
+        background: #600000;
+        text-decoration: none;}
+#main a:active 
+       {color: #000000;}
+
+H1 { font: italic bold 2em arial;
+     color: #000000;
+     text-align: center;}
+
+H2 { font: bold 2em arial;
+     color: #000000;
+     text-align: center;}
+
+H3 { font: bold 1.5em arial;
+     color: #000000;
+     text-align: center;}
+
+H4 { font-size: 1.5em;
+     color: #000000;
+     text-align: center;}
+
+.B1 {font: italic bold 2em arial;
+     color: #007700;}
+
+.B2 {font: italic bold 2em arial;
+     color: #000000;}
+
+.B3 {font: italic 1em arial;}
+
+.ia  {font: italic 1em arial;}
+.iab {font: italic bold 1em arial;}
+.iag {font: italic bold 1em arial;
+      color: #006400;}
+.i {font-style: italic;}
+
+.ud {font-size: 0.75em;}
+
+
+    
+
+
+/* Last modification 6/17/14 */

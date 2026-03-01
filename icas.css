@@ -1,0 +1,93 @@
+body {background-image: url(/icasback.jpg);
+      background-attachment: fixed;}
+ 
+#main{  
+ 
+  margin: 5%;
+  padding: 20px;
+  border: 5px ridge #8b4513;
+  background: #faebd7;
+
+ }
+#main a:link {color: #600000;}
+#main a:visited {color: #400000;}
+#main a:hover {color: #800000; font-size: larger;}
+#main a:active {color: #ff0000;}
+
+
+#navigate{
+  
+  margin: 5%;
+  padding: 20px;
+  border: 5px ridge #8b4513;
+  background: #faebd7;
+  font-weight: bold;
+  font-style: italic;
+  font-size:larger;
+  text-align : center;
+ }
+
+
+#navigate a:link {
+  color: #600000;
+  border-style: solid;
+  border-width: 1px;
+  text-decoration: none;
+  padding: 3PX;
+  border-color: #faebd7;
+  background: #faebd7;}
+
+#navigate a:hover {
+  color: #ffd700;
+  border-style: solid;
+  border-width: 1px;
+  text-decoration: none;
+  padding: 3X;
+  border-color: #deb887;
+  background: #000000;}
+
+#navigate a:visited {
+  color: #600000;
+  border-style: solid;
+  border-width: 1px;
+  text-decoration: none;
+  padding: 3X;
+  border-color: #faebd7;
+  background: #faebd7;}
+
+#navigate a:active {
+  color: #ff0000;}
+
+
+
+H1 { font: italic bold 18pt arial;
+     color: #000000;
+     text-align: center;}
+
+.B1 {font: italic bold 18pt arial;
+     color: #007700;}
+
+.B2 {font: italic bold 18pt arial;
+     color: #000000;}
+
+.B3 {font: italic 9pt arial;}
+
+.I1 {font: italic arial;}
+
+table#icaslogo {
+  background-color: #007700;
+  border:  6px outset;
+  border-color: #888888;}
+
+table#icaslogo td{
+  padding: 12px;}
+    
+.logo {
+  color: #ffffff;
+  background-color: #006600;
+  font-family: arial, sans-serif;
+  font-size: larger;
+  font-style: italic;
+  font-weight: bold;}
+
+/* Last modification 9/11/10 */
