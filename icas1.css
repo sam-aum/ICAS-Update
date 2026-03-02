@@ -106,3 +106,19 @@ table#icaslogo td{
   font-weight: bold;}
 
 /* Last modification 6/17/14 */
+.main-nav {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #f7f7f7; /* optional background */
+}
+
+.main-nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
+}
