@@ -113,3 +113,93 @@ font-weight: bold;}
 
 
 
+.nav-dropdown { position: relative; display: inline-block; }
+.nav-dropbtn { background: none; border: 0; font: inherit; cursor: pointer; }
+
+.nav-dropmenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  padding: 8px;
+  background: white;
+  border: 1px solid #ddd;
+  z-index: 1000;
+}
+
+.nav-dropmenu.is-open { display: block; }
+
+.nav-dropmenu a { display: block; padding: 8px 10px; text-decoration: none; }
+
+
+/* ===== New nav layout (for generated nav) ===== */
+
+#navigate .nav-inner {
+   display: flex;
+   align-items: center;
+   justify-content: center; /* keeps it centered like your old nav */
+   gap: 100px;
+   flex-wrap: wrap;         /* allows wrapping instead of smashing */
+ }
+ 
+ #navigate .nav-links {
+   display: flex;
+   align-items: center;
+   gap: 14px;               /* spacing between items */
+   flex-wrap: wrap;         /* lets it wrap nicely on small widths */
+   justify-content: center;
+ }
+ 
+ /* Make dropdown button look like your #navigate links */
+ #navigate .nav-dropbtn {
+   color: #600000;
+   text-decoration: none;
+   font-style: italic;
+   font-weight: bold;
+   padding: 6px 8px;        /* creates clickable space */
+ }
+ 
+ #navigate .nav-dropbtn:hover {
+   color: #faebd7;
+   background: #600000;
+ }
+ 
+ /* Give top-level <a> padding too, to match */
+ #navigate .nav-links > a {
+   padding: 6px 8px;
+   display: inline-block;
+ }
+ 
+ /* Dropdown menu styling that matches your theme */
+ #navigate .nav-dropmenu {
+   background: #faebd7;     /* match your page */
+   border: 3px ridge #8b4513;
+   padding: 6px;
+   min-width: 240px;
+   text-align: left;        /* menus are easier to read left-aligned */
+ }
+ 
+ #navigate .nav-dropmenu a {
+   padding: 6px 8px;
+ }
+
+ .nav-brand img {
+   height: 100px;   /* adjust as needed */
+   width: auto;
+   display: block;
+ }
+ 
+ .nav-brand {
+   display: flex;
+   align-items: center;
+ }
+
+
+ .nav-brand img {
+   transition: opacity 0.2s ease;
+ }
+ 
+ .nav-brand img:hover {
+   opacity: 0.8;
+ }
