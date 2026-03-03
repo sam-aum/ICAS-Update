@@ -2,8 +2,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const navHost = document.getElementById("navigate");
     if (!navHost) return;
-  
-
 
     const nav = {
       top: [
@@ -83,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <nav class="main-nav" aria-label="Primary">
         <div class="nav-inner">
             <a class="nav-brand" href="/index.html">
-                <img src="/ICAS-pro-logo-1.png" alt="ICAS Home">
+                <img src="images/icas-logo.png" alt="ICAS Home">
             </a>
   
           <div id="primary-nav" class="nav-links">
