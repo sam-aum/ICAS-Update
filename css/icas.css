@@ -1,3 +1,15 @@
+/* Global reset for consistent alignment */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-image: url(https://icasinc.org/icasback.jpg);
   background-attachment: fixed;
@@ -5,10 +17,15 @@ body {
 }
 
 #main {
-  margin: 5%;
-  padding: 5%;
+  width: min(1200px, 90%);
+  margin: 2rem auto;
   border: 5px ridge #8b4513;
   background: #faebd7;
+}
+
+
+#main {
+  padding: 40px;
 }
 
 #main a:link { color: #600000; }
@@ -20,7 +37,6 @@ body {
 }
 #main a:active { color: #000000; }
 
-#pollhead p { text-align: justify; }
 
 H1 { font: italic bold 2em arial; color: #000000; text-align: center; }
 H2 { font: bold 2em arial; color: #000000; text-align: center; }
@@ -39,24 +55,31 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
 
 .ud { font-size: 0.75em; }
 
-table#icaslogo {
+
+
+
+/* ============================= */
+/* SITE HEADER */
+/* ============================= */
+
+#icaslogo {
   background-color: #007700;
   border: 6px outset;
   border-color: #888888;
+  display: table;
+  margin: 0 auto;
 }
 
-table#icaslogo td { padding: 12px; }
-
-.logo {
+#icaslogo .logo {
+  padding: 12px;
   color: #ffffff;
   background-color: #006600;
-  font-family: arial, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
 }
 
-/* Last modification 6/17/14 */
 
 
 
