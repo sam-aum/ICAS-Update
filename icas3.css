@@ -39,12 +39,11 @@ text-align: center;
         font-weight: bold;
         font-style: italic;
         text-decoration: none;}
-#navigate a:hover
-       {color: #faebd7;
-        background: #600000;
-        font-style: italic;
-        font-weight: bold;
-        text-decoration: none;}
+#navigate a:hover {
+      color: #600000;          /* keep original color */
+      background: none;        /* remove highlight */
+      text-decoration: underline;
+      }
 #navigate a:active
        {color: #ff0000;
         font-style: italic;
@@ -161,9 +160,10 @@ font-weight: bold;}
  }
  
  #navigate .nav-dropbtn:hover {
-   color: #faebd7;
-   background: #600000;
- }
+   color: #600000;
+   background: none;
+   text-decoration: underline;
+}
  
  /* Give top-level <a> padding too, to match */
  #navigate .nav-links > a {
