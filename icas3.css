@@ -139,7 +139,7 @@ font-weight: bold;}
    display: flex;
    align-items: center;
    justify-content: center; /* keeps it centered like your old nav */
-   gap: 100px;
+   gap: 70px;
    flex-wrap: wrap;         /* allows wrapping instead of smashing */
  }
  
