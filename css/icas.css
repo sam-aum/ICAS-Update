@@ -80,7 +80,51 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
   font-weight: bold;
 }
 
+#icaslogo {
+  text-align: center;
+  margin-top: 20px;
+}
 
+
+
+/* ============================= */
+/* PAGE HEADER */
+/* ============================= */
+
+.page-header {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.title-line {
+  width: 450px;
+  margin: 10px auto 30px auto;
+  border: none;
+  border-top: 2px solid #600000;
+}
+
+/* ============================= */
+/* BULLETIN TABLE */
+/* ============================= */
+
+.bulletin-table{
+  display:flex;
+  justify-content:center;
+}
+
+.bulletins{
+  border-collapse:collapse;
+}
+
+.bulletins td{
+  padding:6px 12px;
+  vertical-align:top;
+}
+
+.bulletins .date{
+  white-space:nowrap;
+  font-weight:bold;
+}
 
 
 
