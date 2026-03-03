@@ -137,8 +137,8 @@ font-weight: bold;}
 #navigate .nav-inner {
    display: flex;
    align-items: center;
-   justify-content: center; /* keeps it centered like your old nav */
-   gap: 70px;
+   justify-content: center;/* keeps it centered like your old nav */
+   gap: 100px;
    flex-wrap: wrap;         /* allows wrapping instead of smashing */
  }
  

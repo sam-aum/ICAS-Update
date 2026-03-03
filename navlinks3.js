@@ -3,28 +3,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const navHost = document.getElementById("navigate");
     if (!navHost) return;
   
+
+
     const nav = {
       top: [
         { label: "About", href: "/mission.html" },
-        { label: "Liberty Award", href: "/liberty.html" },
-        { label: "Upcoming", href: "/upcome.html" },
         { label: "Contact", href: "/contact.html" },
       ],
       groups: [
         {
           label: "People",
           items: [
+            { label: "Staff", href: "/staff.html" },
+            { label: "Interns & Associates", href: "/interns.html" },
             { label: "Contributors & Speakers", href: "/speakers.html" },
             { label: "Fellows", href: "/roster.html" },
-            { label: "Interns & Associates", href: "/interns.html" },
-            { label: "Staff", href: "/staff.html" },
+            { label: "Liberty Award", href: "/liberty.html" },
+            { label: "Delegations", href: "/delegate/delegate.html" },
+            { label: "Institutional Supporters", href: "/support.html" },
           ],
         },
         {
           label: "Programs",
           items: [
+            { label: "Upcoming", href: "/upcome.html" },
+            { label: "Bulletins", href: "/bullbase.html" },
             { label: "Symposia", href: "/symposia.html" },
-            { label: "Delegations", href: "/delegate/delegate.html" },
+            { label: "Lectures", href: "/lectures.html" },
             { label: "Youth Academy", href: "/youth/yacademy.html" },
             { label: "Golf", href: "/golf/golf.html" },
             { label: "Tennis", href: "/tennis/tennis.html" },
@@ -33,10 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           label: "Media",
           items: [
-            { label: "Lectures", href: "/lectures.html" },
             { label: "Videos", href: "/vidbase.html" },
             { label: "Photos", href: "/gallery/gallery.html" },
-            { label: "Bulletins", href: "/bullbase.html" },
             { label: "Program Archives", href: "/archives/progarch.html" },
             { label: "Historical Documents", href: "/history/history.html" },
             { label: "Specials", href: "/special.html" },
@@ -47,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
           items: [
             { label: "Mission", href: "/mission.html" },
             { label: "Strategy", href: "/strategy.html" },
-            { label: "Institutional Supporters", href: "/support.html" },
             { label: "Index of Organizations", href: "/organize.html" },
           ],
         },
