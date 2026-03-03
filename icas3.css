@@ -12,7 +12,8 @@ margin: 2% 5% 2% 5%;
 padding:8px;
 border: 5px ridge #8b4513;
 background: #faebd7;
-text-align: center;}
+text-align: center;
+}
 
 #main a:link
    {color: #600000;}
@@ -106,22 +107,7 @@ font-style: italic;
 font-weight: bold;}
 
 /* Last modification 6/17/14 */
-.main-nav {
-text-align: center;
-padding: 15px 0;
-background-color: #f7f7f7; /* optional background */
-}
 
-.main-nav a {
-margin: 0 10px;
-text-decoration: none;
-color: #222;
-font-weight: 500;
-}
-
-.main-nav a:hover {
-text-decoration: underline;
-}
 
 
 

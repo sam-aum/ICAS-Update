@@ -8,10 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="nav-inner">
           <a class="nav-brand" href="/index.html">ICAS</a>
   
-          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-            ☰ <span class="sr-only">Menu</span>
-          </button>
-  
+          <!--
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+              ☰ <span class="sr-only">Menu</span>
+            </button> 
+          -->
+
           <div id="primary-nav" class="nav-links">
             <a href="/bullbase.html">Bulletins</a>
             <a href="/contact.html">Contact</a>
@@ -42,11 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   
     // Hamburger behavior (ready for mobile CSS)
-    const toggle = navHost.querySelector(".nav-toggle");
-    const links = navHost.querySelector("#primary-nav");
+    // const toggle = navHost.querySelector(".nav-toggle");
+    // const links = navHost.querySelector("#primary-nav");
   
-    toggle.addEventListener("click", () => {
-      const isOpen = links.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-    });
+    // toggle.addEventListener("click", () => {
+    //   const isOpen = links.classList.toggle("is-open");
+    //   toggle.setAttribute("aria-expanded", String(isOpen));
+    // });
   });
