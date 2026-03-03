@@ -57,3 +57,38 @@ table#icaslogo td { padding: 12px; }
 }
 
 /* Last modification 6/17/14 */
+
+
+
+
+/* ============================= */
+/* BULLETIN ARCHIVE */
+/* ============================= */
+
+.bulletin-archive {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+#bulletin-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.bulletin-link {
+  padding: 6px 12px;
+  background: #faebd7;
+  border: 2px solid #8b4513;
+  text-decoration: none;
+  color: #600000;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+.bulletin-link:hover {
+  background: #600000;
+  color: #faebd7;
+}
