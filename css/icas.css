@@ -158,6 +158,7 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
 /* BULLETIN ARCHIVE */
 /* ============================= */
 
+/* Bulletin Archive (year buttons) */
 .bulletin-archive {
   text-align: center;
   margin: 2rem auto;
@@ -171,7 +172,7 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
   margin-top: 1rem;
 }
 
-.bulletin-link {
+.bulletin-year-link{
   padding: 6px 12px;
   background: #faebd7;
   border: 2px solid #8b4513;
@@ -179,9 +180,13 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
   color: #600000;
   font-weight: bold;
   transition: 0.2s ease;
+  display: inline-block;
 }
 
-.bulletin-link:hover {
+.bulletin-year-link:hover{
   background: #600000;
   color: #faebd7;
 }
+
+
+
