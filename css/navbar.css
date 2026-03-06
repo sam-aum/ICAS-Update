@@ -3,9 +3,11 @@
 #navigate {
   width: min(1200px, 90%);
   margin: 2rem auto;
-  border: 1px solid rgba(0,0,0,0.12);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-  background: #f6f2ea;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: #f4efe6;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.55) inset,
+    0 3px 10px rgba(0,0,0,0.05);
   padding: 10px 16px;
   text-align: center;
 }
@@ -41,18 +43,30 @@
 .nav-dropbtn { background: none; border: 0; font: inherit; cursor: pointer; }
 
 .nav-dropmenu {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 220px;
-  padding: 8px;
-  background: white;
-  border: 1px solid #ddd;
-  z-index: 1000;
+  min-width: 240px;
+  padding: 6px;
+
+  background: #fbf8f3;
+  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
 
-.nav-dropmenu.is-open { display: block; }
+.nav-dropdown:hover .nav-dropmenu,
+.nav-dropdown:focus-within .nav-dropmenu,
+.nav-dropmenu.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 
 .nav-dropmenu a {
   display: block;
@@ -65,16 +79,16 @@
 #navigate .nav-inner {
   display: flex;
   align-items: center;
-  justify-content: center; /* keeps it centered like your old nav */
-  gap: 80px;
-  flex-wrap: wrap;         /* allows wrapping instead of smashing */
+  justify-content: center;
+  gap: clamp(18px, 4vw, 32px);
+  flex-wrap: wrap;
 }
 
 #navigate .nav-links {
   display: flex;
   align-items: center;
-  gap: 14px;               /* spacing between items */
-  flex-wrap: wrap;         /* lets it wrap nicely on small widths */
+  gap: 10px;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -114,9 +128,18 @@
   color: #300000;
 }
 
-#navigate .nav-dropmenu a {
-  padding: 6px 10px;
+.nav-dropdown:hover .nav-dropmenu {
   display: block;
+}
+
+.nav-dropdown:focus-within .nav-dropmenu {
+  display: block;
+}
+
+#navigate .nav-dropmenu a {
+  padding: 7px 12px;
+  display: block;
+  font-style: normal;
 }
 
 .nav-dropbtn::after {
