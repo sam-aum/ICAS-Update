@@ -11,21 +11,23 @@ html, body {
 }
 
 body {
-  background-image: url(https://icasinc.org/icasback.jpg);
-  background-attachment: fixed;
+  background: linear-gradient(
+    to bottom,
+    #f6f3ec 0%,
+    #f3efe7 40%,
+    #f1ede5 100%
+  );
   font-size: 100%;
 }
 
 #main {
   width: min(1200px, 90%);
   margin: 4rem auto;
-  border: 5px ridge #8b4513;
-  background: #faebd7;
+  border: 1px solid rgba(0,0,0,0.15);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  background: #faf7f1;
   padding: 40px;
 }
-
-
-
 
 H1 { font: italic bold 2em arial; color: #000000; text-align: center; }
 H2 { font: bold 2em arial; color: #000000; text-align: center; }
@@ -44,9 +46,6 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
 
 .ud { font-size: 0.75em; }
 
-
-
-
 /* ============================= */
 /* SITE HEADER */
 /* ============================= */
@@ -56,7 +55,8 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
   border: 6px outset;
   border-color: #888888;
   display: table;
-  margin: 0 auto;
+  margin: 20px auto 0;
+  text-align: center;
 }
 
 #icaslogo .logo {
@@ -69,13 +69,6 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
   font-weight: bold;
 }
 
-#icaslogo {
-  text-align: center;
-  margin-top: 20px;
-}
-
-
-
 /* ============================= */
 /* PAGE HEADER */
 /* ============================= */
@@ -87,80 +80,87 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
 
 .title-line {
   width: 450px;
+  max-width: 100%;
   margin: 10px auto 30px auto;
   border: none;
   border-top: 2px solid #600000;
 }
 
-
-
 /* ============================= */
 /* BULLETIN FEED */
 /* ============================= */
 
-.bulletin-feed-table{
+.bulletin-feed-table {
   width: min(900px, 100%);
   margin: 0 auto;
 }
 
-.bulletin-feed-list{
+.bulletin-feed-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.bulletin-feed-link{
+.bulletin-feed-link {
   display: grid;
-  grid-template-columns: 170px 1fr;
-  gap: 16px;
-
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 14px;
   padding: 10px 6px;
   text-decoration: none;
   color: inherit;
   transition: background 0.15s ease;
 }
 
-.bulletin-feed-link:hover{
+.bulletin-feed-link:hover {
   background: rgba(0,0,0,0.05);
 }
 
-.bulletin-feed-date{
+.bulletin-feed-date {
   font-weight: bold;
   white-space: nowrap;
   color: #444;
   padding-left: 20px;
+  padding-right: 16px;
+  border-right: 1px solid rgba(0,0,0,0.08);
 }
 
-.bulletin-feed-title{
+.bulletin-feed-title {
   line-height: 1.35;
   max-width: 80ch;
+  min-width: 0;
   text-wrap: pretty;
 }
 
-.bulletin-sub{
+.bulletin-sub {
   display: block;
   margin-top: 4px;
 }
 
-.bulletin-feed-item{
+.bulletin-feed-item {
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
-.bulletin-feed-item:last-child{
+.bulletin-feed-item:last-child {
   border-bottom: none;
 }
 
 /* Mobile layout */
-@media (max-width:560px){
-  .bulletin-feed-link{
+@media (max-width: 560px) {
+  .bulletin-feed-link {
     grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .bulletin-feed-date {
+    border-right: none;
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 
 /* ============================= */
 /* BULLETIN ARCHIVE */
 /* ============================= */
-
 
 .bulletin-archive {
   max-width: 900px;
@@ -178,26 +178,19 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
 }
 
 #bulletin-archive-links {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(13, auto);
   justify-content: center;
-  gap: 0;
+  gap: 0.45rem 1rem;
   margin-top: 1rem;
 }
 
 .bulletin-year-link {
+  display: block;
   color: #600000;
   text-decoration: none;
   font-weight: bold;
-  padding: 0 10px;
-  position: relative;
-}
-
-.bulletin-year-link:not(:last-child)::after {
-  content: "·";
-  position: absolute;
-  right: -3px;
-  color: #8b4513;
+  padding: 0.1rem 0;
 }
 
 .bulletin-year-link:hover,
@@ -205,3 +198,17 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
   text-decoration: underline;
 }
 
+/* Tablet */
+@media (max-width: 900px) {
+  #bulletin-archive-links {
+    grid-template-columns: repeat(6, auto);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #bulletin-archive-links {
+    grid-template-columns: repeat(3, auto);
+    gap: 0.4rem 0.9rem;
+  }
+}
