@@ -104,7 +104,7 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
 }
 
 /* ============================= */
-/* BULLETIN TABLE */
+/* BULLETIN LIST */
 /* ============================= */
 
 .bulletins-table{
@@ -164,7 +164,7 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
   margin: 2rem auto;
 }
 
-#bulletin-archive-links {
+#bulletin-archive-links{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -175,18 +175,23 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
 .bulletin-year-link{
   padding: 6px 12px;
   background: #faebd7;
-  border: 2px solid #8b4513;
+  border: 1px solid #8b4513;
+  border-radius: 20px;
+
   text-decoration: none;
   color: #600000;
   font-weight: bold;
-  transition: 0.2s ease;
-  display: inline-block;
+  font-size: 0.9rem;
+
+  transition: all 0.2s ease;
 }
 
 .bulletin-year-link:hover{
   background: #600000;
   color: #faebd7;
+  border-color: #600000;
 }
 
-
-
+.bulletin-archive h4{
+  margin-bottom: 0.5rem;
+}
