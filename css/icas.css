@@ -161,7 +161,6 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
 /* BULLETIN ARCHIVE */
 /* ============================= */
 
-/* Bulletin Archive (year buttons) */
 
 .bulletin-archive {
   max-width: 900px;
@@ -205,4 +204,4 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
 .bulletin-year-link.active-year {
   text-decoration: underline;
 }
-  
+
