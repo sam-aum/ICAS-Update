@@ -8,16 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
       "July", "August", "September", "October", "November", "December"
     ];
   
+    // expected format: b260222a
     function parseCode(code) {
-      // Expected format: b260222a
       const match = code.match(/^([a-zA-Z])(\d{2})(\d{2})(\d{2})([a-zA-Z0-9]+)$/);
       if (!match) return null;
   
-      const prefix = match[1];      // b
-      const yy = match[2];          // 26
-      const mm = match[3];          // 02
-      const dd = match[4];          // 22
-      const suffix = match[5];      // a
+      const prefix = match[1];
+      const yy = match[2];
+      const mm = match[3];
+      const dd = match[4];
   
       const fullYear = 2000 + Number(yy);
       const monthIndex = Number(mm) - 1;
@@ -75,16 +74,16 @@ document.addEventListener("DOMContentLoaded", () => {
     items.sort((a, b) => b.dt - a.dt);
   
     const ul = document.createElement("ul");
-    ul.className = "bulletins-list";
+    ul.className = "bulletin-feed-list";
   
     for (const item of items) {
       const li = document.createElement("li");
-      li.className = "bulletin-item";
+      li.className = "bulletin-feed-item";
   
       li.innerHTML = `
-        <a class="bulletin-link" href="${item.href}">
-          <span class="bulletin-date">${prettyDate(item.dt)}</span>
-          <span class="bulletin-title">${item.titleHtml}</span>
+        <a class="bulletin-feed-link" href="${item.href}">
+          <span class="bulletin-feed-date">${prettyDate(item.dt)}</span>
+          <span class="bulletin-feed-title">${item.titleHtml}</span>
         </a>
       `;
   
