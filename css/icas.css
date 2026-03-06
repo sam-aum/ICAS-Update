@@ -21,21 +21,13 @@ body {
   margin: 2rem auto;
   border: 5px ridge #8b4513;
   background: #faebd7;
-}
-
-
-#main {
   padding: 40px;
 }
 
-#main a:link { color: #600000; }
-#main a:visited { color: #600000; }
-#main a:hover {
-  color: #faebd7;
-  background: #600000;
-  text-decoration: none;
-}
-#main a:active { color: #000000; }
+
+
+
+
 
 
 H1 { font: italic bold 2em arial; color: #000000; text-align: center; }
@@ -171,7 +163,7 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
 /* ============================= */
 
 /* Bulletin Archive (year buttons) */
-.bulletin-archive {
+/* .bulletin-archive {
   text-align: center;
   margin: 2rem auto;
 }
@@ -212,4 +204,37 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
   background: #600000;
   color: #faebd7;
   border-color: #600000;
+} */
+
+.bulletin-archive {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+#bulletin-archive-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  margin-top: 1rem;
+}
+
+.bulletin-year-link {
+  color: #600000;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 10px;
+  position: relative;
+}
+
+.bulletin-year-link:not(:last-child)::after {
+  content: "·";
+  position: absolute;
+  right: -3px;
+  color: #8b4513;
+}
+
+.bulletin-year-link:hover,
+.bulletin-year-link.active-year {
+  text-decoration: underline;
 }
