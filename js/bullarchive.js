@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("bulletin-links");
+  const container = document.getElementById("bulletin-archive-links");
   if (!container) return;
 
   const years = [
