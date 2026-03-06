@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICAS 2026 Bulletins</title>
+    <!-- <base href="https://www.icasinc.org/2026/2026b/2026bull.html"> -->
+    <link rel="stylesheet" href="css/icas.css" type="text/css">
+    <link rel="stylesheet" href="css/navbar.css" type="text/css">
+</head>
+
+
+
+
+
+
+<body>
+<br><br>
+    <!-- Navigation Links -->
+    <div id="navigate"></div>
+    <script defer src="js/navbar.js"></script>
+
+
+
+    <div id="main">
+        <!-- ICAS Logo -->
+        <div id="icaslogo">
+            <div class="logo">Institute for Corean-American Studies</div>
+        </div>
+
+        <!-- Main Heading -->
+        <div class="page-header">
+            <h1>ICAS Bulletins - 2026</h1>
+            <hr class="title-line">
+        </div>
+
+        <div class="bulletins-archive" aria-label="ICAS Bulletins 2026">
+            <ul class="bulletins-list" id="bulletinsList"></ul>
+          
+            <!-- Paste new bulletins BELOW (easy mode) -->
+            <script type="text/plain" id="bulletinsData">
+          2026-02-22|/2026/2026b/b260222a.html|Yoon Seo Choi appointed <span class="ia">ICAS</span> Intern
+          2026-02-19|/2026/2026b/b260219a.html|Hee Jae Jeong appointed <span class="ia">ICAS</span> Intern
+          2026-02-07|/2026/2026b/b260207a.html|Alice Jiyeh Shin admitted to The Heritage Academy Fellow Program of The Heritage Foundation
+          2026-01-23|/2026/2026b/b260123a.html|Alexander B Gray to address VIRTUAL <span class="ia">ICAS</span> Winter Symposium <span class="ia">Veritas</span>: <span class="bulletin-sub">The Trump Doctrine, World Affairs and US National Security</span>
+          2026-01-13|/2026/2026b/b251122a.html|The Hon Keizo Takemi to address VIRTUAL <span class="ia">ICAS</span> Winter Symposium <span class="ia">Libertas</span>: <span class="bulletin-sub">Japan with Prime Minister Sanae Takaichi</span>
+          2026-01-07|/2026/2026b/b260107a.html|Esther Jihea So admitted to The Heritage Academy Fellow Program of The Heritage Foundation
+          2026-03-05|/2026/2026b/b260305a.html|John Doe appointed <span class="ia">ICAS</span> Intern
+            </script>
+        </div>
+          
+        <script>
+            (function () {
+            const ul = document.getElementById("bulletinsList");
+            const raw = document.getElementById("bulletinsData")?.textContent || "";
+            if (!ul) return;
+            
+            // Format YYYY-MM-DD -> "Month DD, YYYY"
+            const formatDate = (iso) => {
+                const [y, m, d] = iso.trim().split("-").map(Number);
+                const dt = new Date(y, (m || 1) - 1, d || 1);
+                return dt.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "2-digit" });
+            };
+            
+            const lines = raw
+                .split("\n")
+                .map(l => l.trim())
+                .filter(l => l && !l.startsWith("#"));
+            
+            const items = lines.map(line => {
+                const parts = line.split("|");
+                const iso = (parts[0] || "").trim();
+                const href = (parts[1] || "").trim();
+                const titleHtml = parts.slice(2).join("|").trim(); // allow | inside title if ever needed
+            
+                if (!iso || !href || !titleHtml) return null;
+            
+                const li = document.createElement("li");
+                li.className = "bulletin-item";
+            
+                li.innerHTML = `
+                <a class="bulletin-link" href="${href}">
+                    <span class="bulletin-date">${formatDate(iso)}</span>
+                    <span class="bulletin-title">${titleHtml}</span>
+                </a>
+                `;
+                return li;
+            }).filter(Boolean);
+            
+            // Newest first (by date)
+            items.sort((a, b) => {
+                const da = new Date(a.querySelector(".bulletin-date")?.textContent || "");
+                const db = new Date(b.querySelector(".bulletin-date")?.textContent || "");
+                return db - da;
+            });
+            
+            ul.replaceChildren(...items);
+            })();
+        </script>
+
+        <!-- Bulletin Archive -->
+        <section class="bulletin-archive">
+            <h4>Bulletins from</h4>
+            <div id="bulletin-archive-links"></div>
+        </section>
+            
+        <script src="js/bullarchive.js"></script>
+
+
+        <br><br>
+
+        <center>
+            <span class="ud">This page last modified March 05, 2026 sa</span><br>    
+            <span class="ud">4.50 hrs</span><br>
+        </center>
+    </div>
+
+
+    <br>
+
+</body>
+</html>
