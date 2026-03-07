@@ -1,3 +1,9 @@
+/* Prevent horizontal scroll on mobile devices */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Define custom spacing variables */
 :root {
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -19,6 +25,7 @@ html, body {
   padding: 0;
 }
 
+/* Main body styling */
 body {
 
   background: linear-gradient(
@@ -48,6 +55,7 @@ body {
 }
 
 
+/* Heading styles */
 
 h1 {
   font: italic bold 2em Georgia, "Times New Roman", serif;
@@ -74,6 +82,7 @@ h4 {
   text-align: center;
 }
 
+/* Body text styles */
 .B1 { font: italic bold 2em arial; color: #007700; }
 .B2 { font: italic bold 2em arial; color: #000000; }
 .B3 { font: italic 1em arial; }
@@ -85,6 +94,8 @@ h4 {
 .i { font-style: italic; }
 
 .ud { font-size: 0.75em; }
+
+
 
 /* ============================= */
 /* SITE HEADER */

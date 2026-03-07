@@ -102,12 +102,14 @@
   top: 100%;
   left: 0;
   min-width: 240px;
-  padding: 6px;
+  padding: 10px 0;
   text-align: left;
+  font-size: 0.95rem;
 
   background: #f9f5ef;
   border: 1px solid rgba(0,0,0,0.12);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 
   opacity: 0;
   transform: translateY(6px);
@@ -126,13 +128,13 @@
 
 #navigate .nav-dropmenu a {
   display: block;
-  padding: 7px 12px;
+  padding: 9px 16px;
   text-decoration: none;
   font-style: normal;
 }
 
 #navigate .nav-dropmenu a:hover {
-  background: rgba(96, 0, 0, 0.05);
+  background: rgba(96, 0, 0, 0.08);
   color: #300000;
 }
 
@@ -141,7 +143,7 @@
 
 .nav-brand {
   display: flex;
-  align-items: center;
+  align-items: center;  
 }
 
 .nav-brand img {
