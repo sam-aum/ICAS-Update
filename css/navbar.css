@@ -145,7 +145,7 @@
 
 
 /* ============================= */
-/* NAVBAR RESPONSIVE */
+/* Tablet Navigation */
 /* ============================= */
 
 @media (max-width: 900px) {
@@ -213,7 +213,7 @@
   }
 
   .nav-dropmenu {
-    left: 50%;
+    left: 100%;
     right: auto;
     max-width: 90vw;
     min-width: min(260px, 90vw);
