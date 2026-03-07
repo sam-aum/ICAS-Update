@@ -2,75 +2,35 @@
 
 #navigate {
   width: min(1200px, 90%);
-  margin: 2rem auto;
-  border: 1px solid rgba(0,0,0,0.10);
-  background: #f4efe6;
+  margin: var(--space-md) auto;
+  border: 1px solid rgba(0,0,0,0.09);
+  background: #f7f3ec;
   box-shadow:
-    0 1px 0 rgba(255,255,255,0.55) inset,
-    0 3px 10px rgba(0,0,0,0.05);
+    0 1px 0 rgba(255,255,255,0.6) inset,
+    0 3px 10px rgba(0,0,0,0.04);
   padding: 10px 16px;
   text-align: center;
 }
 
 /* Link styles inside the nav */
-#navigate a:link {
-  color: #600000;
-  text-decoration: none;
-  font-style: italic;
-  font-weight: bold;
-}
+#navigate a:link,
 #navigate a:visited {
   color: #600000;
-  font-weight: bold;
-  font-style: italic;
   text-decoration: none;
+  font-style: normal;
+  font-weight: 600;
 }
+
 #navigate a:hover {
-  color: #600000;          /* keep original color */
-  background: none;        /* remove highlight */
+  color: #600000;
+  background: none;
   text-decoration: underline;
 }
+
 #navigate a:active {
   color: #ff0000;
-  font-style: italic;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-/* ===== Dropdown ===== */
-
-.nav-dropdown { position: relative; display: inline-block; }
-.nav-dropbtn { background: none; border: 0; font: inherit; cursor: pointer; }
-
-.nav-dropmenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 240px;
-  padding: 6px;
-
-  background: #fbf8f3;
-  border: 1px solid rgba(0,0,0,0.12);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-
-  opacity: 0;
-  transform: translateY(6px);
-  pointer-events: none;
-
-  transition: opacity 0.18s ease, transform 0.18s ease;
-}
-
-.nav-dropdown:hover .nav-dropmenu,
-.nav-dropdown:focus-within .nav-dropmenu,
-.nav-dropmenu.is-open {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.nav-dropmenu a {
-  display: block;
-  padding: 8px 10px;
+  font-style: normal;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -92,13 +52,28 @@
   justify-content: center;
 }
 
-/* Make dropdown button look like your #navigate links */
+#navigate .nav-links > a {
+  display: inline-block;
+  padding: 6px 8px;
+}
+
+/* ===== Dropdown ===== */
+
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
 #navigate .nav-dropbtn {
+  background: none;
+  border: 0;
+  cursor: pointer;
   color: #600000;
   text-decoration: none;
-  font-style: italic;
-  font-weight: bold;
-  padding: 6px 8px;        /* creates clickable space */
+  font: inherit;
+  font-style: normal;
+  font-weight: 600;
+  padding: 6px 8px;
 }
 
 #navigate .nav-dropbtn:hover {
@@ -107,20 +82,42 @@
   text-decoration: underline;
 }
 
-/* Give top-level <a> padding too, to match */
-#navigate .nav-links > a {
-  padding: 6px 8px;
-  display: inline-block;
+.nav-dropbtn::after {
+  content: " ▾";
+  font-size: 0.8em;
 }
 
-/* Dropdown menu styling that matches your theme */
-#navigate .nav-dropmenu {
-  background: #fbf8f3;
+.nav-dropmenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  padding: 6px;
+  text-align: left;
+
+  background: #f9f5ef;
   border: 1px solid rgba(0,0,0,0.12);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  padding: 6px;
-  min-width: 240px;
-  text-align: left;
+
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 1000;
+}
+
+.nav-dropdown:hover .nav-dropmenu{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#navigate .nav-dropmenu a {
+  display: block;
+  padding: 7px 12px;
+  text-decoration: none;
+  font-style: normal;
 }
 
 #navigate .nav-dropmenu a:hover {
@@ -128,36 +125,103 @@
   color: #300000;
 }
 
-.nav-dropdown:hover .nav-dropmenu {
-  display: block;
-}
+/* ===== Brand/logo in nav ===== */
 
-.nav-dropdown:focus-within .nav-dropmenu {
-  display: block;
-}
-
-#navigate .nav-dropmenu a {
-  padding: 7px 12px;
-  display: block;
-  font-style: normal;
-}
-
-.nav-dropbtn::after {
-  content: " ▾";
-  font-size: 0.8em;
-}
-
-/* Brand/logo in nav */
 .nav-brand {
   display: flex;
   align-items: center;
 }
 
 .nav-brand img {
-  height: 100px;   /* adjust as needed */
+  height: 100px;
   width: auto;
   display: block;
   transition: opacity 0.2s ease;
 }
 
-.nav-brand img:hover { opacity: 0.8; }
+.nav-brand img:hover {
+  opacity: 0.8;
+}
+
+
+/* ============================= */
+/* NAVBAR RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 900px) {
+  #navigate {
+    padding: 10px 12px;
+  }
+
+  .nav-brand img {
+    height: 82px;
+  }
+
+  #navigate .nav-inner {
+    gap: 18px;
+  }
+
+  #navigate .nav-links {
+    gap: 6px;
+  }
+
+  #navigate .nav-links > a,
+  #navigate .nav-dropbtn {
+    padding: 5px 6px;
+  }
+
+  .nav-dropmenu {
+    min-width: 220px;
+  }
+}
+
+
+/* ============================= */
+/* Mobile Navigation */
+/* ============================= */
+
+@media (max-width: 600px) {
+  #navigate {
+    width: min(1200px, 94%);
+    padding: var(--space-md);
+    margin: var(--space-lg) auto;
+  }
+
+
+  .nav-brand img {
+    height: 68px;
+  }
+
+  #navigate .nav-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #navigate .nav-links {
+    justify-content: center;
+    gap: 4px 8px;
+  }
+
+  #navigate .nav-links > a,
+  #navigate .nav-dropbtn {
+    padding: 4px 6px;
+    font-size: 0.95rem;
+  }
+
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropmenu {
+    left: 50%;
+    right: auto;
+    max-width: 90vw;
+    min-width: min(260px, 90vw);
+    transform: translateX(-50%) translateY(6px);
+  }
+
+  .nav-dropdown:hover .nav-dropmenu,
+  .nav-dropdown:focus-within .nav-dropmenu {
+    transform: translateX(-50%) translateY(0);
+  }
+}
