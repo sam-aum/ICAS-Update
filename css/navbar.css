@@ -39,29 +39,39 @@
 #navigate .nav-inner {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: clamp(18px, 4vw, 32px);
-  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 28px;
 }
 
 #navigate .nav-links {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 18px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 #navigate .nav-links > a {
   display: inline-block;
-  padding: 6px 8px;
+  padding: 4px 2px;
 }
+
 
 /* ===== Dropdown ===== */
 
 .nav-dropdown {
   position: relative;
   display: inline-block;
+}
+
+/* Keeps the mouse inside .nav-dropdown while moving down. */
+.nav-dropdown::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 10px;
 }
 
 #navigate .nav-dropbtn {
@@ -73,7 +83,7 @@
   font: inherit;
   font-style: normal;
   font-weight: 600;
-  padding: 6px 8px;
+  padding: 4px 2px;
 }
 
 #navigate .nav-dropbtn:hover {
@@ -104,6 +114,7 @@
   pointer-events: none;
 
   transition: opacity 0.18s ease, transform 0.18s ease;
+  will-change: opacity, transform; /* Helps with performance on some browsers. */
   z-index: 1000;
 }
 
@@ -125,6 +136,7 @@
   color: #300000;
 }
 
+
 /* ===== Brand/logo in nav ===== */
 
 .nav-brand {
@@ -133,7 +145,7 @@
 }
 
 .nav-brand img {
-  height: 100px;
+  height: 72px;
   width: auto;
   display: block;
   transition: opacity 0.2s ease;
