@@ -2,12 +2,15 @@
 
 #navigate {
   width: min(1200px, 90%);
-  margin: var(--space-md) auto;
-  border: 1px solid rgba(0,0,0,0.09);
-  background: #f7f3ec;
-  box-shadow:
+  margin: var(--space-lg) auto 0;
+  background: #f2efe9;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-bottom: none;
+
+  /* box-shadow:
     0 1px 0 rgba(255,255,255,0.6) inset,
-    0 3px 10px rgba(0,0,0,0.04);
+    0 3px 10px rgba(0,0,0,0.04); */
+
   padding: 10px 16px;
   text-align: center;
 }
@@ -36,14 +39,14 @@
 
 /* ===== New nav layout (for generated nav) ===== */
 
-#navigate .nav-inner {
+.nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
 }
 
-#navigate .nav-links {
+.nav-links {
   display: flex;
   align-items: center;
   gap: 18px;

@@ -28,30 +28,27 @@ html, body {
 /* Main body styling */
 body {
 
-  background: linear-gradient(
-    to bottom,
-    #f7f4ee 0%,
-    #f3efe7 45%,
-    #f0ece4 100%
-  );
-
-  font-size: 100%;
+  background: #ffffff;
   font-family: Georgia, "Times New Roman", Times, serif;
-  line-height: 1.55;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #222;
 }
 
 #main {
   width: min(1200px, 90%);
-  margin: var(--space-lg) auto;
+  margin: 0 auto var(--space-lg);
   padding: var(--space-lg);
 
-  border: 1px solid rgba(0,0,0,0.12);
-  background: #fbf8f3;
+  /* border: 1px solid rgba(0,0,0,0.06);
+  border-top: none; */
 
-  box-shadow:
+  background: #ffffff;
+
+  /* box-shadow:
     0 1px 0 rgba(255,255,255,0.6) inset,
     0 6px 18px rgba(0,0,0,0.06),
-    0 16px 40px rgba(0,0,0,0.04);
+    0 16px 40px rgba(0,0,0,0.04); */
 }
 
 
@@ -167,8 +164,9 @@ h4 {
 }
 
 .bulletin-feed-link:hover {
-  background: rgba(96, 0, 0, 0.04);
-  box-shadow: inset 2px 0 0 rgba(96, 0, 0, 0.35);
+  background: rgba(96, 0, 0, 0.05);
+  box-shadow: inset 3px 0 0 #600000;
+  transform: translateX(2px);
 }
 
 .bulletin-feed-link:hover .bulletin-feed-title {
@@ -197,7 +195,7 @@ h4 {
   font-size: 1.04rem;
   font-weight: 500;
   line-height: 1.45;
-  max-width: 75ch;
+  max-width: 65ch;
   min-width: 0;
 }
 
