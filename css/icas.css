@@ -36,7 +36,7 @@ body {
 }
 
 #main {
-  width: min(1200px, 90%);
+  width: min(1200px, 94%);
   margin: 0 auto var(--space-lg);
   padding: var(--space-lg);
 
@@ -182,13 +182,15 @@ h4 {
 
 .bulletin-feed-date {
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
-  color: #666;
+
+  color: #888;
+  font-size: 0.9rem;
+
   padding-left: 20px;
   padding-right: 16px;
-  border-right: 1px solid rgba(0,0,0,0.06);
-  font-size: 0.95rem;
+  border-right: 1px solid rgba(0,0,0,0.08);
 }
 
 .bulletin-feed-title {
@@ -199,13 +201,17 @@ h4 {
   min-width: 0;
 }
 
+/* .bulletin-feed-item:nth-child(even) {
+  background: rgba(0,0,0,0.015);
+} */
+
 .bulletin-sub {
   display: block;
   margin-top: 4px;
 }
 
 .bulletin-feed-item {
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
   margin: 0;
 }
 
@@ -266,6 +272,8 @@ h4 {
 .bulletin-year-link.active-year {
   text-decoration: underline;
 }
+
+
 
 /* Tablet */
 @media (max-width: 900px) {

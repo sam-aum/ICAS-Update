@@ -201,7 +201,7 @@
   #navigate {
     width: min(1200px, 94%);
     padding: var(--space-md);
-    margin: var(--space-lg) auto;
+    margin: var(--space-lg) auto 0;
   }
 
 
