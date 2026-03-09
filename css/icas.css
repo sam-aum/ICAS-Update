@@ -1,58 +1,64 @@
-/* Prevent horizontal scroll on mobile devices */
-html, body {
+/* =======================================
+   GLOBAL BASICS
+   Page-wide defaults and reset
+======================================= */
+
+/* Prevent horizontal scroll on small screens */
+html,
+body {
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-/* Define custom spacing variables */
-:root {
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 3rem;
-  --space-xl: 4rem;
-}
-
-
-/* Global reset for consistent alignment */
+/* Use consistent box sizing everywhere */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
+/* Spacing variables */
+:root {
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
+  --navbar-height: 110px;
 }
 
-/* Main body styling */
+/* Main page text styling */
 body {
-
   background: #ffffff;
+  color: #222;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 17px;
   line-height: 1.65;
-  color: #222;
 }
+
+
+/* =======================================
+   MAIN PAGE LAYOUT
+   Full-width section + centered content
+======================================= */
 
 #main {
-  width: min(1200px, 94%);
-  margin: 0 auto var(--space-lg);
-  padding: var(--space-lg);
-
-  /* border: 1px solid rgba(0,0,0,0.06);
-  border-top: none; */
-
+  width: 100%;
+  padding: var(--space-lg) 0;
   background: #ffffff;
+}
 
-  /* box-shadow:
-    0 1px 0 rgba(255,255,255,0.6) inset,
-    0 6px 18px rgba(0,0,0,0.06),
-    0 16px 40px rgba(0,0,0,0.04); */
+.content-container {
+  width: min(1200px, 90%);
+  margin: calc(var(--navbar-height) + 10px) auto var(--space-lg);
 }
 
 
-/* Heading styles */
+/* =======================================
+   HEADINGS
+   Main heading styles
+======================================= */
 
 h1 {
   font: italic bold 2em Georgia, "Times New Roman", serif;
@@ -79,36 +85,70 @@ h4 {
   text-align: center;
 }
 
-/* Body text styles */
-.B1 { font: italic bold 2em arial; color: #007700; }
-.B2 { font: italic bold 2em arial; color: #000000; }
-.B3 { font: italic 1em arial; }
-.B4 { font: normal 1em arial; }
 
-.ia  { font: italic 1em arial; }
-.iab { font: italic bold 1em arial; }
-.iag { font: italic bold 1em arial; color: #006400; }
-.i { font-style: italic; }
+/* =======================================
+   LEGACY TEXT UTILITY CLASSES
+   Existing text styles kept for compatibility
+======================================= */
 
-.ud { font-size: 0.75em; }
+.B1 {
+  font: italic bold 2em Arial;
+  color: #007700;
+}
+
+.B2 {
+  font: italic bold 2em Arial;
+  color: #000000;
+}
+
+.B3 {
+  font: italic 1em Arial;
+}
+
+.B4 {
+  font: normal 1em Arial;
+}
+
+.ia {
+  font: italic 1em Arial;
+}
+
+.iab {
+  font: italic bold 1em Arial;
+}
+
+.iag {
+  font: italic bold 1em Arial;
+  color: #006400;
+}
+
+.i {
+  font-style: italic;
+}
+
+.ud {
+  font-size: 0.75em;
+}
 
 
-
-/* ============================= */
-/* SITE HEADER */
-/* ============================= */
+/* =======================================
+   SITE HEADER
+   ICAS logo block at the top of the page
+======================================= */
 
 #icaslogo {
-  background-color: #007700;
-  border: 6px outset;
-  border-color: #888888;
   display: table;
   margin: 20px auto 0;
   text-align: center;
+
+  background-color: #007700;
+  border: 6px outset;
+  border-color: #888888;
 }
 
 #icaslogo .logo {
   padding: 12px;
+
   color: #ffffff;
   background-color: #006600;
   font-family: Arial, sans-serif;
@@ -117,27 +157,43 @@ h4 {
   font-weight: bold;
 }
 
-/* ============================= */
-/* PAGE HEADER */
-/* ============================= */
+
+/* =======================================
+   PAGE HEADER
+   Title area for the bulletin page
+======================================= */
 
 .page-header {
-  text-align: center;
   margin-top: var(--space-md);
   margin-bottom: var(--space-md);
+  text-align: center;
 }
 
 .title-line {
   width: 420px;
   max-width: 100%;
   margin: var(--space-sm) auto var(--space-md);
+
   border: none;
   border-top: 2px solid #600000;
 }
 
-/* ============================= */
-/* BULLETIN FEED */
-/* ============================= */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =======================================
+   BULLETIN FEED
+   Main bulletin list layout and interactions
+======================================= */
 
 .bulletin-feed-table {
   width: min(900px, 100%);
@@ -145,18 +201,29 @@ h4 {
 }
 
 .bulletin-feed-list {
-  list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bulletin-feed-item {
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.bulletin-feed-item:last-child {
+  border-bottom: none;
 }
 
 .bulletin-feed-link {
   display: grid;
   grid-template-columns: 190px minmax(0, 1fr);
   gap: 14px;
+
   padding: 14px 6px 14px 10px;
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+
   transition:
     background-color 0.18s ease,
     box-shadow 0.18s ease,
@@ -181,45 +248,38 @@ h4 {
 }
 
 .bulletin-feed-date {
+  padding-left: 20px;
+  padding-right: 16px;
+
+  color: #888;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
   font-weight: 500;
   white-space: nowrap;
 
-  color: #888;
-  font-size: 0.9rem;
-
-  padding-left: 20px;
-  padding-right: 16px;
-  border-right: 1px solid rgba(0,0,0,0.08);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .bulletin-feed-title {
+  max-width: 65ch;
+  min-width: 0;
+
   font-size: 1.04rem;
   font-weight: 500;
   line-height: 1.45;
-  max-width: 65ch;
-  min-width: 0;
 }
-
-/* .bulletin-feed-item:nth-child(even) {
-  background: rgba(0,0,0,0.015);
-} */
 
 .bulletin-sub {
   display: block;
   margin-top: 4px;
 }
 
-.bulletin-feed-item {
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  margin: 0;
-}
 
-.bulletin-feed-item:last-child {
-  border-bottom: none;
-}
+/* =======================================
+   BULLETIN FEED - MOBILE
+   Stack date and title on smaller screens
+======================================= */
 
-/* Mobile layout */
 @media (max-width: 560px) {
   .bulletin-feed-link {
     grid-template-columns: 1fr;
@@ -227,29 +287,32 @@ h4 {
   }
 
   .bulletin-feed-date {
-    border-right: none;
-    padding-right: 0;
     padding-left: 0;
+    padding-right: 0;
+    border-right: none;
   }
 }
 
-/* ============================= */
-/* BULLETIN ARCHIVE */
-/* ============================= */
+
+/* =======================================
+   BULLETIN ARCHIVE
+   Year links below the main bulletin feed
+======================================= */
 
 .bulletin-archive {
   max-width: 900px;
   margin: var(--space-lg) auto 0;
   padding-top: var(--space-md);
-  border-top: 1px solid rgba(0,0,0,0.12);
+
   text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .bulletin-archive-title {
   margin-bottom: 0.75rem;
+  color: #3b2a1a;
   font-size: 1.1rem;
   font-weight: bold;
-  color: #3b2a1a;
 }
 
 #bulletin-archive-links {
@@ -262,10 +325,11 @@ h4 {
 
 .bulletin-year-link {
   display: block;
+  padding: 0.1rem 0;
+
   color: #600000;
   text-decoration: none;
   font-weight: bold;
-  padding: 0.1rem 0;
 }
 
 .bulletin-year-link:hover,
@@ -274,15 +338,23 @@ h4 {
 }
 
 
+/* =======================================
+   BULLETIN ARCHIVE - TABLET
+   Fewer columns for medium screens
+======================================= */
 
-/* Tablet */
 @media (max-width: 900px) {
   #bulletin-archive-links {
     grid-template-columns: repeat(6, auto);
   }
 }
 
-/* Mobile */
+
+/* =======================================
+   BULLETIN ARCHIVE - MOBILE
+   Compact year grid for small screens
+======================================= */
+
 @media (max-width: 600px) {
   #bulletin-archive-links {
     grid-template-columns: repeat(3, auto);

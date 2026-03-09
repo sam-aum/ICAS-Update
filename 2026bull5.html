@@ -1,69 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICAS 2026 Bulletins</title>
-    <!-- <base href="https://www.icasinc.org/2026/2026b/2026bull.html"> -->
-    <link rel="stylesheet" href="css/icas.css" type="text/css">
-    <link rel="stylesheet" href="css/navbar.css" type="text/css">
+  <!-- =======================================
+       BASIC PAGE SETUP
+  ======================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICAS 2026 Bulletins</title>
+
+  <!-- Optional base URL -->
+  <!-- <base href="https://www.icasinc.org/2026/2026b/2026bull.html"> -->
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/icas.css" type="text/css">
+  <link rel="stylesheet" href="css/navbar.css" type="text/css">
 </head>
 
-
 <body>
-<br><br>
-    <!-- Navigation Links -->
-    <div id="navigate"></div>
-    <script defer src="js/navbar.js"></script>
+  <!-- =======================================
+       SITE NAVIGATION
+       Filled by navbar.js
+  ======================================== -->
+  <div id="navigate"></div>
 
+  <!-- =======================================
+       MAIN PAGE CONTENT
+  ======================================== -->
+  <main id="main">
+    <div class="content-container">
+      <!-- Site logo -->
+      <div id="icaslogo">
+        <div class="logo">Institute for Corean-American Studies</div>
+      </div>
 
-    <div id="main">
-        <!-- ICAS Logo -->
-        <div id="icaslogo">
-            <div class="logo">Institute for Corean-American Studies</div>
-        </div>
+      <!-- Page heading -->
+      <header class="page-header">
+        <h1>Bulletins - 2026</h1>
+        <hr class="title-line">
+      </header>
 
-        <!-- Main Heading -->
-        <div class="page-header">
-            <h1>Bulletins - 2026</h1>
-            <hr class="title-line">
-        </div>
+      <!-- =======================================
+           BULLETIN FEED
+      ======================================== -->
+      <section class="bulletin-feed-table" aria-labelledby="bulletins-heading">
+        <h2 id="bulletins-heading" class="visually-hidden">ICAS Bulletins 2026</h2>
 
-        <!-- Bulletin Feed -->
-        <div class="bulletin-feed-table" aria-label="ICAS Bulletins 2026">
+        <ul id="bulletinsMount" class="bulletin-feed-list"></ul>
 
-            <!-- Bulletin Feed Auto-Generated -->
-            <div class="bulletin-feed" aria-label="ICAS Bulletins 2026">
-                <div id="bulletinsMount"></div>
-        
-                <script type="text/plain" id="bulletinsData">
-                b260222a | Yoon Seo Choi appointed <span class="iab">ICAS</span> Intern
-                b260219a | Hee Jae Jeong appointed <span class="iab">ICAS</span> Intern
-                b260207a | Alice Jiyeh Shin admitted to The Heritage Academy Fellow Program of The Heritage Foundation
-                b260130a | Alexander B Gray to address VIRTUAL <span class="iab">ICAS</span> Winter Symposium <span class="iab">Veritas</span>: <span class="bulletin-sub">The Trump Doctrine, World Affairs and US National Security</span>
-                b260113a | The Hon Keizo Takemi to address VIRTUAL <span class="iab">ICAS</span> Winter Symposium <span class="iab">Libertas</span>: <span class="bulletin-sub">Japan with Prime Minister Sanae Takaichi</span>
-                b260107a | Esther Jihea So admitted to The Heritage Academy Fellow Program of The Heritage Foundation
-                </script>
-            </div>
-        
-        </div>
+        <script type="text/plain" id="bulletinsData">
+b260222a | Yoon Seo Choi appointed <span class="iab">ICAS</span> Intern
+b260219a | Hee Jae Jeong appointed <span class="iab">ICAS</span> Intern
+b260207a | Alice Jiyeh Shin admitted to The Heritage Academy Fellow Program of The Heritage Foundation
+b260130a | Alexander B Gray to address VIRTUAL <span class="iab">ICAS</span> Winter Symposium <span class="iab">Veritas</span>: <span class="bulletin-sub">The Trump Doctrine, World Affairs and US National Security</span>
+b260113a | The Hon Keizo Takemi to address VIRTUAL <span class="iab">ICAS</span> Winter Symposium <span class="iab">Libertas</span>: <span class="bulletin-sub">Japan with Prime Minister Sanae Takaichi</span>
+b260107a | Esther Jihea So admitted to The Heritage Academy Fellow Program of The Heritage Foundation
+        </script>
+      </section>
 
+      <!-- =======================================
+           BULLETIN YEAR ARCHIVE
+      ======================================== -->
+      <section class="bulletin-archive" aria-labelledby="bulletin-archive-heading">
+        <h2 id="bulletin-archive-heading" class="bulletin-archive-title">
+          Browse Bulletins by Year
+        </h2>
 
-
-        <!-- Bulletin Year Archive -->
-        <section class="bulletin-archive" aria-labelledby="bulletin-archive-heading">
-            <h4 id="bulletin-archive-heading" class="bulletin-archive-title">
-                Browse Bulletins by Year
-            </h4>
-
-            <nav id="bulletin-archive-links" aria-label="Bulletin archive years"></nav>
-        </section>
-
+        <nav id="bulletin-archive-links" aria-label="Bulletin archive years"></nav>
+      </section>
     </div>
+  </main>
 
-        <script src="js/bullgen.js"></script>
-        <script src="js/bullarchive.js"></script>
-
-
+  <!-- =======================================
+       PAGE SCRIPTS
+  ======================================== -->
+  <script defer src="js/navbar.js"></script>
+  <script src="js/bullgen.js"></script>
+  <script src="js/bullarchive.js"></script>
 </body>
 </html>

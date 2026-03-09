@@ -1,21 +1,32 @@
-/* ===== Basic navigate container ===== */
+/* =======================================
+   NAVBAR WRAPPER
+   Fixed navigation bar centered on page
+======================================= */
 
 #navigate {
   width: min(1200px, 90%);
-  margin: var(--space-lg) auto 0;
-  background: #f2efe9;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-bottom: none;
-
-  /* box-shadow:
-    0 1px 0 rgba(255,255,255,0.6) inset,
-    0 3px 10px rgba(0,0,0,0.04); */
-
   padding: 10px 16px;
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  background: #f2efe9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
   text-align: center;
 }
 
-/* Link styles inside the nav */
+
+/* =======================================
+   NAVBAR LINK STYLES
+   Top-level links and shared link appearance
+======================================= */
+
 #navigate a:link,
 #navigate a:visited {
   color: #600000;
@@ -32,12 +43,16 @@
 
 #navigate a:active {
   color: #ff0000;
+  text-decoration: none;
   font-style: normal;
   font-weight: 600;
-  text-decoration: none;
 }
 
-/* ===== New nav layout (for generated nav) ===== */
+
+/* =======================================
+   NAVBAR LAYOUT
+   Logo on one side, navigation links on the other
+======================================= */
 
 .nav-inner {
   display: flex;
@@ -49,9 +64,9 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
   justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 18px;
 }
 
 #navigate .nav-links > a {
@@ -60,33 +75,66 @@
 }
 
 
-/* ===== Dropdown ===== */
+/* =======================================
+   BRAND / LOGO
+   Logo image inside navbar
+======================================= */
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+}
+
+.nav-brand img {
+  display: block;
+  width: auto;
+  height: 72px;
+  transition: opacity 0.2s ease;
+}
+
+.nav-brand img:hover {
+  opacity: 0.8;
+}
+
+
+/* =======================================
+   DROPDOWN WRAPPER
+   Parent element that anchors the dropdown menu
+======================================= */
 
 .nav-dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* Keeps the mouse inside .nav-dropdown while moving down. */
+/* Invisible bridge to help keep hover active
+   when moving from button down to menu */
 .nav-dropdown::after {
   content: "";
   position: absolute;
+  top: 100%;
   left: 0;
   right: 0;
-  top: 100%;
   height: 10px;
 }
 
+
+/* =======================================
+   DROPDOWN BUTTON
+   Trigger button for dropdown sections
+======================================= */
+
 #navigate .nav-dropbtn {
-  background: none;
+  padding: 4px 2px;
   border: 0;
+  background: none;
   cursor: pointer;
+
   color: #600000;
   text-decoration: none;
   font: inherit;
   font-style: normal;
   font-weight: 600;
-  padding: 4px 2px;
 }
 
 #navigate .nav-dropbtn:hover {
@@ -100,34 +148,50 @@
   font-size: 0.8em;
 }
 
+
+/* =======================================
+   DROPDOWN MENU
+   Hidden by default, shown on hover/focus
+======================================= */
+
 .nav-dropmenu {
   position: absolute;
   top: 100%;
   left: 0;
+
   min-width: 240px;
   padding: 10px 0;
-  text-align: left;
-  font-size: 0.95rem;
 
   background: #f9f5ef;
-  border: 1px solid rgba(0,0,0,0.12);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 6px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+
+  text-align: left;
+  font-size: 0.95rem;
 
   opacity: 0;
   transform: translateY(6px);
   pointer-events: none;
 
   transition: opacity 0.18s ease, transform 0.18s ease;
-  will-change: opacity, transform; /* Helps with performance on some browsers. */
+  will-change: opacity, transform;
   z-index: 1000;
 }
 
-.nav-dropdown:hover .nav-dropmenu{
+/* Show dropdown on hover or keyboard focus */
+.nav-dropdown:hover .nav-dropmenu,
+.nav-dropdown:focus-within .nav-dropmenu {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
+
+
+/* =======================================
+   DROPDOWN MENU LINKS
+   Individual links inside dropdown panel
+======================================= */
 
 #navigate .nav-dropmenu a {
   display: block;
@@ -142,28 +206,10 @@
 }
 
 
-/* ===== Brand/logo in nav ===== */
-
-.nav-brand {
-  display: flex;
-  align-items: center;  
-}
-
-.nav-brand img {
-  height: 72px;
-  width: auto;
-  display: block;
-  transition: opacity 0.2s ease;
-}
-
-.nav-brand img:hover {
-  opacity: 0.8;
-}
-
-
-/* ============================= */
-/* Tablet Navigation */
-/* ============================= */
+/* =======================================
+   TABLET NAVIGATION
+   Adjust spacing and sizing for medium screens
+======================================= */
 
 @media (max-width: 900px) {
   #navigate {
@@ -171,14 +217,14 @@
   }
 
   .nav-brand img {
-    height: 82px;
+    height: 72px;
   }
 
-  #navigate .nav-inner {
+  .nav-inner {
     gap: 18px;
   }
 
-  #navigate .nav-links {
+  .nav-links {
     gap: 6px;
   }
 
@@ -193,28 +239,27 @@
 }
 
 
-/* ============================= */
-/* Mobile Navigation */
-/* ============================= */
+/* =======================================
+   MOBILE NAVIGATION
+   Stack navbar content and reposition dropdowns
+======================================= */
 
 @media (max-width: 600px) {
   #navigate {
     width: min(1200px, 94%);
     padding: var(--space-md);
-    margin: var(--space-lg) auto 0;
   }
-
 
   .nav-brand img {
-    height: 68px;
+    height: 72px;
   }
 
-  #navigate .nav-inner {
+  .nav-inner {
     flex-direction: column;
     gap: 12px;
   }
 
-  #navigate .nav-links {
+  .nav-links {
     justify-content: center;
     gap: 4px 8px;
   }
@@ -223,10 +268,6 @@
   #navigate .nav-dropbtn {
     padding: 4px 6px;
     font-size: 0.95rem;
-  }
-
-  .nav-dropdown {
-    position: relative;
   }
 
   .nav-dropmenu {
