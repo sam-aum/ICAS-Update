@@ -55,12 +55,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const dropdownHTML = nav.groups
     .map(
-      (group) => `
+      (group, index) => `
         <div class="nav-dropdown">
-          <button class="nav-dropbtn" type="button" aria-haspopup="true">
+          <button
+            class="nav-dropbtn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-group-${index}"
+          >
             ${group.label}
           </button>
-          <div class="nav-dropmenu" role="menu">
+          <div id="nav-group-${index}" class="nav-dropmenu" role="menu">
             ${group.items
               .map(
                 (item) => `<a role="menuitem" href="${item.href}">${item.label}</a>`
@@ -103,16 +108,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const toggle = navHost.querySelector(".nav-toggle");
   const primaryNav = navHost.querySelector("#primary-nav");
+  const dropdownButtons = navHost.querySelectorAll(".nav-dropbtn");
 
-  if (!toggle || !primaryNav) return;
+  if (toggle && primaryNav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = primaryNav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+      toggle.textContent = isOpen ? "✕" : "☰";
+    });
+  }
 
-  toggle.addEventListener("click", () => {
-    const isOpen = primaryNav.classList.toggle("is-open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
-    toggle.setAttribute(
-      "aria-label",
-      isOpen ? "Close navigation menu" : "Open navigation menu"
-    );
-    toggle.textContent = isOpen ? "✕" : "☰";
+  dropdownButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (window.innerWidth > 600) return;
+
+      const parentDropdown = button.closest(".nav-dropdown");
+      if (!parentDropdown) return;
+
+      const isOpen = parentDropdown.classList.toggle("is-open");
+      button.setAttribute("aria-expanded", String(isOpen));
+    });
   });
 });

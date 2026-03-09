@@ -277,7 +277,6 @@
    MOBILE NAVIGATION
    Hamburger menu for small screens
 ======================================= */
-
 @media (max-width: 600px) {
   #navigate {
     padding: 12px 0;
@@ -329,6 +328,22 @@
     width: 100%;
   }
 
+  .nav-dropbtn {
+    position: relative;
+  }
+
+  .nav-dropbtn::after {
+    content: "▾";
+    position: absolute;
+    right: 0;
+    font-size: 0.9em;
+    transition: transform 0.2s ease;
+  }
+
+  .nav-dropdown.is-open .nav-dropbtn::after {
+    transform: rotate(180deg);
+  }
+
   .nav-dropmenu {
     position: static;
     min-width: 0;
@@ -348,11 +363,12 @@
     box-shadow: none;
   }
 
-  .nav-dropdown:hover .nav-dropmenu {
+  .nav-dropdown.is-open .nav-dropmenu {
     display: block;
   }
 
   #navigate .nav-dropmenu a {
+    display: block;
     padding: 8px 0 8px 14px;
   }
 }
