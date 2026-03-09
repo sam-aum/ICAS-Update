@@ -18,7 +18,7 @@ body {
   
   .content-container {
     width: min(1200px, 90%);
-    margin: calc(var(--navbar-height) + 10px) auto var(--space-lg);
+    margin: calc(var(--navbar-height) + 20px) auto var(--space-lg);
   }
   
   /* mobile adjustment for fixed navbar */
@@ -26,6 +26,6 @@ body {
   @media (max-width: 600px) {
     .content-container {
       width: min(1200px, 94%);
-      margin: 190px auto var(--space-lg);
+      margin: calc(var(--navbar-height-mobile) + 20px) auto var(--space-lg);
     }
   }

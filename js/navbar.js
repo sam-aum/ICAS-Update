@@ -62,7 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
           </button>
           <div class="nav-dropmenu" role="menu">
             ${group.items
-              .map((item) => `<a role="menuitem" href="${item.href}">${item.label}</a>`)
+              .map(
+                (item) => `<a role="menuitem" href="${item.href}">${item.label}</a>`
+              )
               .join("")}
           </div>
         </div>
@@ -81,6 +83,16 @@ document.addEventListener("DOMContentLoaded", () => {
           <img src="images/icas-logo.png" alt="ICAS Home">
         </a>
 
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation menu"
+        >
+          ☰
+        </button>
+
         <div id="primary-nav" class="nav-links">
           ${dropdownHTML}
           ${topLinksHTML}
@@ -88,4 +100,19 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </nav>
   `;
+
+  const toggle = navHost.querySelector(".nav-toggle");
+  const primaryNav = navHost.querySelector("#primary-nav");
+
+  if (!toggle || !primaryNav) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = primaryNav.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+    toggle.textContent = isOpen ? "✕" : "☰";
+  });
 });

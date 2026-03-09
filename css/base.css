@@ -22,7 +22,8 @@ body {
   --space-lg: 3rem;
   --space-xl: 4rem;
 
-  --navbar-height: 110px;
+  --navbar-height: 90px;
+  --navbar-height-mobile: 90px;
 }
 
 /* visually hidden helper */

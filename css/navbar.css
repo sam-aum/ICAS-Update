@@ -257,47 +257,102 @@
 
 
 /* =======================================
+   MOBILE TOGGLE BUTTON
+   Hidden on desktop, shown on mobile
+======================================= */
+
+.nav-toggle {
+  display: none;
+  border: 0;
+  background: none;
+  cursor: pointer;
+
+  color: #600000;
+  font-size: 1.8rem;
+  line-height: 1;
+  padding: 4px 8px;
+}
+
+/* =======================================
    MOBILE NAVIGATION
-   Stack navbar content and reposition dropdowns
+   Hamburger menu for small screens
 ======================================= */
 
 @media (max-width: 600px) {
   #navigate {
-    padding: var(--space-md) 0;
-  }
-
-  .nav-brand img {
-    height: 72px;
+    padding: 12px 0;
   }
 
   .nav-inner {
     width: min(1200px, 94%);
     margin: 0 auto;
 
-    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 12px;
   }
 
+  .nav-brand img {
+    height: 60px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
   .nav-links {
-    justify-content: center;
-    gap: 4px 8px;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 8px;
+  }
+
+  .nav-links.is-open {
+    display: flex;
   }
 
   #navigate .nav-links > a,
   #navigate .nav-dropbtn {
-    padding: 4px 6px;
-    font-size: 0.95rem;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  .nav-dropdown {
+    display: block;
+    width: 100%;
   }
 
   .nav-dropmenu {
-    left: 100%;
-    right: auto;
-    max-width: 90vw;
-    min-width: min(260px, 90vw);
-    transform: translateX(-50%) translateY(6px);
+    position: static;
+    min-width: 0;
+    max-width: none;
+    margin: 4px 0 8px 0;
+    padding: 6px 0;
+
+    display: none;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+
+    background: transparent;
+    border: none;
+    border-left: 2px solid rgba(96, 0, 0, 0.15);
+    border-radius: 0;
+    box-shadow: none;
   }
 
-  .nav-dropdown:hover .nav-dropmenu{
-    transform: translateX(-50%) translateY(0);
+  .nav-dropdown:hover .nav-dropmenu {
+    display: block;
+  }
+
+  #navigate .nav-dropmenu a {
+    padding: 8px 0 8px 14px;
   }
 }
