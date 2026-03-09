@@ -1,0 +1,151 @@
+/* =======================================
+   BULLETIN FEED
+======================================= */
+
+.bulletin-feed-table {
+  width: min(900px, 100%);
+  margin: var(--space-md) auto;
+}
+
+.bulletin-feed-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bulletin-feed-item {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.bulletin-feed-item:last-child {
+  border-bottom: none;
+}
+
+.bulletin-feed-link {
+  display: grid;
+  grid-template-columns: 190px minmax(0,1fr);
+  gap: 14px;
+
+  padding: 14px 6px 14px 10px;
+
+  text-decoration: none;
+  color: inherit;
+
+  transition:
+    background-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease;
+}
+
+.bulletin-feed-link:hover {
+  background: rgba(96,0,0,.05);
+  box-shadow: inset 3px 0 0 #600000;
+  transform: translateX(2px);
+}
+
+.bulletin-feed-link:hover .bulletin-feed-title {
+  color: #300000;
+}
+
+.bulletin-feed-date {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+
+  color: #888;
+  font-size: .9rem;
+
+  padding-left: 20px;
+  padding-right: 16px;
+  border-right: 1px solid rgba(0,0,0,.08);
+}
+
+.bulletin-feed-title {
+  font-size: 1.04rem;
+  font-weight: 500;
+  line-height: 1.45;
+  max-width: 65ch;
+}
+
+.bulletin-sub {
+  display: block;
+  margin-top: 4px;
+}
+
+
+/* =======================================
+   BULLETIN MOBILE
+======================================= */
+
+@media (max-width:560px) {
+
+  .bulletin-feed-link {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .bulletin-feed-date {
+    border-right: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+/* =======================================
+   BULLETIN ARCHIVE
+======================================= */
+
+.bulletin-archive {
+  max-width: 900px;
+  margin: var(--space-lg) auto 0;
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(0,0,0,.12);
+  text-align: center;
+}
+
+.bulletin-archive-title {
+  margin-bottom: .75rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #3b2a1a;
+}
+
+#bulletin-archive-links {
+  display: grid;
+  grid-template-columns: repeat(13, auto);
+  justify-content: center;
+  gap: .45rem 1rem;
+  margin-top: 1rem;
+}
+
+.bulletin-year-link {
+  display: block;
+  color: #600000;
+  text-decoration: none;
+  font-weight: bold;
+  padding: .1rem 0;
+}
+
+.bulletin-year-link:hover {
+  text-decoration: underline;
+}
+
+
+/* tablet */
+
+@media (max-width:900px) {
+  #bulletin-archive-links {
+    grid-template-columns: repeat(6, auto);
+  }
+}
+
+
+/* mobile */
+
+@media (max-width:600px) {
+  #bulletin-archive-links {
+    grid-template-columns: repeat(3, auto);
+    gap: .4rem .9rem;
+  }
+}

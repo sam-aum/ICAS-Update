@@ -1,0 +1,31 @@
+/* =======================================
+   MAIN PAGE LAYOUT
+======================================= */
+
+body {
+    background: #ffffff;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: #222;
+  }
+  
+  #main {
+    width: 100%;
+    padding: var(--space-lg) 0;
+    background: #ffffff;
+  }
+  
+  .content-container {
+    width: min(1200px, 90%);
+    margin: calc(var(--navbar-height) + 10px) auto var(--space-lg);
+  }
+  
+  /* mobile adjustment for fixed navbar */
+  
+  @media (max-width: 600px) {
+    .content-container {
+      width: min(1200px, 94%);
+      margin: 190px auto var(--space-lg);
+    }
+  }

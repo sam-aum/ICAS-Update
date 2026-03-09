@@ -1,0 +1,46 @@
+/* =======================================
+   HEADINGS
+======================================= */
+
+h1 {
+    font: italic bold 2em Georgia, "Times New Roman", serif;
+    color: #000;
+    text-align: center;
+  }
+  
+  h2 {
+    font: bold 1.6em Georgia, "Times New Roman", serif;
+    color: #000;
+    text-align: center;
+  }
+  
+  h3 {
+    font: bold 1.35em Georgia, "Times New Roman", serif;
+    color: #000;
+    text-align: center;
+  }
+  
+  h4 {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+  }
+  
+  
+  /* =======================================
+     LEGACY TEXT UTILITIES
+  ======================================= */
+  
+  .B1 { font: italic bold 2em arial; color: #007700; }
+  .B2 { font: italic bold 2em arial; color: #000000; }
+  .B3 { font: italic 1em arial; }
+  .B4 { font: normal 1em arial; }
+  
+  .ia  { font: italic 1em arial; }
+  .iab { font: italic bold 1em arial; }
+  .iag { font: italic bold 1em arial; color: #006400; }
+  
+  .i { font-style: italic; }
+  
+  .ud { font-size: 0.75em; }

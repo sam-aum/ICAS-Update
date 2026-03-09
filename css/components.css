@@ -1,0 +1,41 @@
+/* =======================================
+   SITE HEADER
+======================================= */
+
+#icaslogo {
+  background-color: #007700;
+  border: 6px outset;
+  border-color: #888888;
+  display: table;
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+#icaslogo .logo {
+  padding: 12px;
+  color: #ffffff;
+  background-color: #006600;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+
+/* =======================================
+   PAGE HEADER
+======================================= */
+
+.page-header {
+  text-align: center;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.title-line {
+  width: 420px;
+  max-width: 100%;
+  margin: var(--space-sm) auto var(--space-md);
+  border: none;
+  border-top: 2px solid #600000;
+}
