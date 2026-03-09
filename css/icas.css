@@ -26,6 +26,7 @@ body {
   --space-lg: 3rem;
   --space-xl: 4rem;
   --navbar-height: 110px;
+  --navbar-height-mobile: 190px;
 }
 
 /* Main page text styling */
@@ -52,6 +53,14 @@ body {
 .content-container {
   width: min(1200px, 90%);
   margin: calc(var(--navbar-height) + 10px) auto var(--space-lg);
+}
+
+/* Mobile layout adjustment for fixed navbar */
+@media (max-width: 600px) {
+  .content-container {
+    width: min(1200px, 94%);
+    margin: calc(var(--navbar-height-mobile) + 10px) auto var(--space-lg);
+  }
 }
 
 
