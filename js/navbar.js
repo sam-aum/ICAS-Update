@@ -125,10 +125,18 @@ document.addEventListener("DOMContentLoaded", () => {
   dropdownButtons.forEach((button) => {
     button.addEventListener("click", () => {
       if (window.innerWidth > 900) return;
-
+  
       const parentDropdown = button.closest(".nav-dropdown");
       if (!parentDropdown) return;
-
+  
+      dropdownButtons.forEach((otherButton) => {
+        const otherDropdown = otherButton.closest(".nav-dropdown");
+        if (otherDropdown && otherDropdown !== parentDropdown) {
+          otherDropdown.classList.remove("is-open");
+          otherButton.setAttribute("aria-expanded", "false");
+        }
+      });
+  
       const isOpen = parentDropdown.classList.toggle("is-open");
       button.setAttribute("aria-expanded", String(isOpen));
     });
