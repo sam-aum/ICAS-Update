@@ -397,4 +397,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
+  /* ========================================
+   CLOSE NAVBAR WHEN CLICKING OUTSIDE
+   Makes the menu behave like modern sites
+  ======================================== */
+
+  document.addEventListener("click", (event) => {
+
+    // If the click happened inside the navbar, do nothing
+    if (navHost.contains(event.target)) return;
+
+    // If menu is open, close it
+    if (primaryNav.classList.contains("is-open")) {
+      closeMainMenu();
+    }
+
+  });
+
 });
