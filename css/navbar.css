@@ -223,38 +223,6 @@
 }
 
 
-/* =======================================
-   TABLET NAVIGATION
-   Adjust spacing and sizing for medium screens
-======================================= */
-
-@media (max-width: 900px) {
-  #navigate {
-    padding: 10px 12px;
-  }
-
-  .nav-brand img {
-    height: 72px;
-  }
-
-  .nav-inner {
-    gap: 18px;
-  }
-
-  .nav-links {
-    gap: 6px;
-  }
-
-  #navigate .nav-links > a,
-  #navigate .nav-dropbtn {
-    padding: 5px 6px;
-  }
-
-  .nav-dropmenu {
-    min-width: 220px;
-  }
-}
-
 
 /* =======================================
    MOBILE TOGGLE BUTTON
@@ -273,11 +241,12 @@
   padding: 4px 8px;
 }
 
+
 /* =======================================
    MOBILE NAVIGATION
    Hamburger menu for small screens
 ======================================= */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   #navigate {
     padding: 12px 0;
   }

@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   dropdownButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      if (window.innerWidth > 600) return;
+      if (window.innerWidth > 900) return;
 
       const parentDropdown = button.closest(".nav-dropdown");
       if (!parentDropdown) return;
