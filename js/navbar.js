@@ -1,48 +1,53 @@
 /* ========================================
    NAVBAR SCRIPT
-   Wait until the HTML page has loaded
+   Runs after the HTML document finishes loading
 ======================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
   /* ========================================
-     FIND THE NAVBAR CONTAINER
-     (#navigate is the div where the navbar will be inserted)
+     FIND NAVBAR CONTAINER
+     The navbar will be injected into this element
   ======================================== */
 
   const navHost = document.getElementById("navigate");
 
-  // If the page doesn't have a navbar container, stop the script
+  // If the page does not contain #navigate, stop the script
   if (!navHost) return;
 
 
+
   /* ========================================
-     BREAKPOINT
-     Defines when the site switches to mobile/tablet mode
-     Must match the CSS breakpoint
+     MOBILE / TABLET BREAKPOINT
+     Must match the breakpoint used in CSS
   ======================================== */
 
   const mobileBreakpoint = 900;
 
 
+
   /* ========================================
      NAVIGATION DATA
-     This is the structure of the navigation menu.
-     It separates:
-       - top level links
-       - dropdown groups
+     This section defines the structure of the menu.
+
+     Advantages:
+     - Easy to add new links
+     - Easy to reorganize menu sections
+     - HTML is generated automatically
   ======================================== */
 
-  const nav = {
+  const navData = {
 
-    /* -------- Direct top navigation links -------- */
+    /* ---------- Top-level links (no dropdown) ---------- */
 
     top: [
       { label: "About", href: "/mission.html" },
       { label: "Contact", href: "/contact.html" },
     ],
 
-    /* -------- Dropdown menu groups -------- */
+
+    /* ---------- Dropdown menu groups ---------- */
 
     groups: [
 
@@ -96,101 +101,145 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
 
+
   /* ========================================
-     GENERATE DROPDOWN HTML
-     This converts the navigation data above
-     into real HTML for the dropdown menus
+     HTML BUILDER FUNCTIONS
+     These small functions generate HTML
+     from the navigation data above.
   ======================================== */
 
-  const dropdownHTML = nav.groups
-    .map(
-      (group, index) => `
-        <div class="nav-dropdown">
 
-          <!-- Dropdown button (example: People, Programs) -->
+
+  /* ----------------------------------------
+     Build simple navigation links
+     (About, Contact)
+  ---------------------------------------- */
+
+  function buildTopLinks(links) {
+
+    return links
+      .map((item) => `<a href="${item.href}">${item.label}</a>`)
+      .join("");
+
+  }
+
+
+
+  /* ----------------------------------------
+     Build one dropdown group
+     (example: "People")
+  ---------------------------------------- */
+
+  function buildDropdown(group, index) {
+
+    const itemsHTML = group.items
+      .map(
+        (item) =>
+          `<a role="menuitem" href="${item.href}">${item.label}</a>`
+      )
+      .join("");
+
+    return `
+      <div class="nav-dropdown">
+
+        <button
+          class="nav-dropbtn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-group-${index}"
+        >
+          ${group.label}
+        </button>
+
+        <div id="nav-group-${index}" class="nav-dropmenu" role="menu">
+          ${itemsHTML}
+        </div>
+
+      </div>
+    `;
+
+  }
+
+
+
+  /* ----------------------------------------
+     Build all dropdown groups
+  ---------------------------------------- */
+
+  function buildDropdowns(groups) {
+
+    return groups
+      .map((group, index) => buildDropdown(group, index))
+      .join("");
+
+  }
+
+
+
+  /* ----------------------------------------
+     Build the entire navbar
+  ---------------------------------------- */
+
+  function buildNavbarHTML(data) {
+
+    const dropdownHTML = buildDropdowns(data.groups);
+    const topLinksHTML = buildTopLinks(data.top);
+
+    return `
+
+      <nav class="main-nav" aria-label="Primary">
+
+        <div class="nav-inner">
+
+          <!-- Website logo -->
+
+          <a class="nav-brand" href="/index.html">
+            <img src="images/icas-logo.png" alt="ICAS Home">
+          </a>
+
+
+          <!-- Hamburger button -->
 
           <button
-            class="nav-dropbtn"
+            class="nav-toggle"
             type="button"
             aria-expanded="false"
-            aria-controls="nav-group-${index}"
+            aria-controls="primary-nav"
+            aria-label="Open navigation menu"
           >
-            ${group.label}
+            ☰
           </button>
 
-          <!-- Dropdown menu -->
 
-          <div id="nav-group-${index}" class="nav-dropmenu" role="menu">
+          <!-- Main navigation links -->
 
-            ${group.items
-              .map(
-                (item) => `<a role="menuitem" href="${item.href}">${item.label}</a>`
-              )
-              .join("")}
+          <div id="primary-nav" class="nav-links">
+
+            ${dropdownHTML}
+            ${topLinksHTML}
 
           </div>
 
         </div>
-      `
-    )
-    .join("");
+
+      </nav>
+
+    `;
+
+  }
+
 
 
   /* ========================================
-     GENERATE SIMPLE TOP LINKS
-     (About, Contact)
+     INSERT NAVBAR INTO PAGE
   ======================================== */
 
-  const topLinksHTML = nav.top
-    .map((item) => `<a href="${item.href}">${item.label}</a>`)
-    .join("");
+  navHost.innerHTML = buildNavbarHTML(navData);
 
-
-  /* ========================================
-     INSERT FULL NAVBAR HTML INTO PAGE
-  ======================================== */
-
-  navHost.innerHTML = `
-
-    <nav class="main-nav" aria-label="Primary">
-
-      <div class="nav-inner">
-
-        <!-- Website logo -->
-
-        <a class="nav-brand" href="/index.html">
-          <img src="images/icas-logo.png" alt="ICAS Home">
-        </a>
-
-        <!-- Hamburger button (mobile/tablet) -->
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="primary-nav"
-          aria-label="Open navigation menu"
-        >
-          ☰
-        </button>
-
-        <!-- Main navigation links -->
-
-        <div id="primary-nav" class="nav-links">
-
-          ${dropdownHTML}
-          ${topLinksHTML}
-
-        </div>
-
-      </div>
-
-    </nav>
-  `;
 
 
   /* ========================================
-     FIND IMPORTANT ELEMENTS
+     FIND IMPORTANT NAV ELEMENTS
   ======================================== */
 
   const toggle = navHost.querySelector(".nav-toggle");
@@ -199,10 +248,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropdowns = navHost.querySelectorAll(".nav-dropdown");
 
 
+
   /* ========================================
-     CLOSE ALL DROPDOWNS
-     Used when opening another dropdown
+     HELPER FUNCTIONS
+     Used by the navigation behavior
   ======================================== */
+
+
+
+  /* ----------------------------------------
+     Close all dropdown menus
+  ---------------------------------------- */
 
   function closeAllDropdowns() {
 
@@ -217,10 +273,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* ========================================
-     CLOSE ENTIRE NAVIGATION MENU
-     Used when switching from mobile → desktop
-  ======================================== */
+
+  /* ----------------------------------------
+     Open the hamburger navigation
+  ---------------------------------------- */
+
+  function openMainMenu() {
+
+    if (!primaryNav || !toggle) return;
+
+    primaryNav.classList.add("is-open");
+
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close navigation menu");
+
+    toggle.textContent = "✕";
+
+  }
+
+
+
+  /* ----------------------------------------
+     Close the hamburger navigation
+  ---------------------------------------- */
 
   function closeMainMenu() {
 
@@ -238,28 +313,33 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
+
+  /* ----------------------------------------
+     Detect mobile/tablet layout
+  ---------------------------------------- */
+
+  function isMobileLayout() {
+
+    return window.innerWidth <= mobileBreakpoint;
+
+  }
+
+
+
   /* ========================================
-     HAMBURGER BUTTON BEHAVIOR
-     Opens and closes the mobile navigation
+     HAMBURGER MENU BEHAVIOR
   ======================================== */
 
   if (toggle && primaryNav) {
 
     toggle.addEventListener("click", () => {
 
-      const isOpen = primaryNav.classList.toggle("is-open");
+      const isOpen = primaryNav.classList.contains("is-open");
 
-      toggle.setAttribute("aria-expanded", String(isOpen));
-
-      toggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation menu" : "Open navigation menu"
-      );
-
-      toggle.textContent = isOpen ? "✕" : "☰";
-
-      if (!isOpen) {
-        closeAllDropdowns();
+      if (isOpen) {
+        closeMainMenu();
+      } else {
+        openMainMenu();
       }
 
     });
@@ -267,31 +347,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
+
   /* ========================================
      DROPDOWN BUTTON BEHAVIOR
-     Used for tablet/mobile tap interaction
+     Used for touch devices
   ======================================== */
 
   dropdownButtons.forEach((button) => {
 
     button.addEventListener("click", () => {
 
-      /* Desktop uses hover — ignore click */
-
-      if (window.innerWidth > mobileBreakpoint) return;
+      // Ignore clicks on desktop (desktop uses hover)
+      if (!isMobileLayout()) return;
 
       const parentDropdown = button.closest(".nav-dropdown");
-
       if (!parentDropdown) return;
 
-      const isAlreadyOpen = parentDropdown.classList.contains("is-open");
+      const isAlreadyOpen =
+        parentDropdown.classList.contains("is-open");
 
-      /* Close other dropdowns */
-
+      // Close other dropdowns
       closeAllDropdowns();
 
-      /* Open clicked dropdown */
-
+      // Open selected dropdown
       if (!isAlreadyOpen) {
 
         parentDropdown.classList.add("is-open");
@@ -305,17 +383,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+
   /* ========================================
-     RESET NAVIGATION ON SCREEN RESIZE
-     Prevents broken states when resizing
+     RESET NAVBAR ON WINDOW RESIZE
+     Prevents layout bugs
   ======================================== */
 
   window.addEventListener("resize", () => {
 
-    if (window.innerWidth > mobileBreakpoint) {
-
+    if (!isMobileLayout()) {
       closeMainMenu();
-
     }
 
   });
