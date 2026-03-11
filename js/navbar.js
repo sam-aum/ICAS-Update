@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <!-- Website logo -->
 
           <a class="nav-brand" href="/index.html">
-            <img src="images/icas-logo.png" alt="ICAS Home">
+            <img src="/images/icas-logo.png" alt="ICAS Home">
           </a>
 
 
