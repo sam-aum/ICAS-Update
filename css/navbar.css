@@ -1,7 +1,6 @@
 /* =======================================
    NAVBAR WRAPPER
-   Fixed navigation bar that stays at the top
-   across the full width of the page
+   Fixed navigation bar across the top
 ======================================= */
 
 #navigate {
@@ -21,8 +20,7 @@
 
 /* =======================================
    NAVBAR LINK STYLES
-   Main link appearance for anchor tags
-   Keeps your original color and weight
+   Keeps your original link appearance
 ======================================= */
 
 #navigate a:link,
@@ -40,7 +38,7 @@
 }
 
 #navigate a:active {
-  color: #ff0000;
+  color: #600000;
   text-decoration: none;
   font-style: normal;
   font-weight: 600;
@@ -48,8 +46,8 @@
 
 /* =======================================
    NAVBAR LAYOUT
-   Controls the inner horizontal structure:
-   logo on the left, nav items on the right
+   Main horizontal structure:
+   logo on left, nav on right
 ======================================= */
 
 .nav-inner {
@@ -62,7 +60,7 @@
   gap: 28px;
 }
 
-/* Main group of links/dropdowns on desktop */
+/* Main navigation links container on desktop */
 .nav-links {
   display: flex;
   align-items: center;
@@ -71,7 +69,7 @@
   gap: 18px;
 }
 
-/* Spacing for top-level anchor links */
+/* Top-level direct links such as About / Contact */
 #navigate .nav-links > a {
   display: inline-block;
   padding: 4px 2px;
@@ -79,12 +77,13 @@
 
 /* =======================================
    BRAND / LOGO
-   Styles the logo container and image
+   Keeps logo stable and same size
 ======================================= */
 
 .nav-brand {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .nav-brand img {
@@ -100,8 +99,7 @@
 
 /* =======================================
    DROPDOWN WRAPPER
-   Parent container for each dropdown group
-   Example: People, Programs, Media
+   Parent for each dropdown group
 ======================================= */
 
 .nav-dropdown {
@@ -109,9 +107,8 @@
   display: inline-block;
 }
 
-/* Invisible bridge between button and menu
-   Helps prevent the hover from breaking
-   when moving the cursor downward */
+/* Invisible bridge between dropdown button
+   and menu to help hover stay active */
 .nav-dropdown::after {
   content: "";
   position: absolute;
@@ -123,7 +120,7 @@
 
 /* =======================================
    DROPDOWN BUTTON
-   The clickable label that opens the menu
+   Example: People, Programs, Media
 ======================================= */
 
 #navigate .nav-dropbtn {
@@ -148,7 +145,7 @@
 }
 
 #navigate .nav-dropbtn:active {
-  color: #ff0000;
+  color: #600000;
   text-decoration: none;
   font-style: normal;
   font-weight: 600;
@@ -163,7 +160,6 @@
 /* =======================================
    DROPDOWN MENU
    Hidden by default on desktop
-   Appears below the dropdown button
 ======================================= */
 
 .nav-dropmenu {
@@ -191,7 +187,7 @@
   z-index: 1000;
 }
 
-/* Show dropdown on desktop hover */
+/* Desktop hover behavior */
 .nav-dropdown:hover .nav-dropmenu {
   opacity: 1;
   transform: translateY(0);
@@ -200,7 +196,7 @@
 
 /* =======================================
    DROPDOWN MENU LINKS
-   Links inside the dropdown panel
+   Links inside dropdown panel
 ======================================= */
 
 #navigate .nav-dropmenu a {
@@ -216,13 +212,13 @@
 }
 
 /* =======================================
-   MOBILE / TABLET TOGGLE BUTTON
-   Hidden on desktop
-   Visible at 900px and below
+   HAMBURGER TOGGLE BUTTON
+   Hidden on desktop, shown on tablet/mobile
 ======================================= */
 
 .nav-toggle {
   display: none;
+
   border: 0;
   background: none;
   cursor: pointer;
@@ -231,36 +227,35 @@
   font-size: 1.8rem;
   line-height: 1;
   padding: 4px 8px;
+
+  margin-left: auto;
 }
 
 /* =======================================
    TABLET / MOBILE NAVIGATION
-   At 900px and below, switch to hamburger
-   and stack links vertically
+   IMPORTANT:
+   This breakpoint should match navbar.js
 ======================================= */
 
 @media (max-width: 900px) {
-  /* Slightly roomier top/bottom padding */
+  /* Slightly roomier vertical padding */
   #navigate {
-    padding: 12px 0;
+    padding: 10px 0;
   }
 
-  /* Allow wrapping so logo + toggle sit on top,
-     menu drops underneath when opened */
+  /* Keep same width as desktop so logo position
+     stays more consistent across screen modes */
   .nav-inner {
-    width: min(1200px, 94%);
+    width: min(1200px, 90%);
     margin: 0 auto;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  /* Slightly smaller logo on smaller screens */
-  .nav-brand img {
-    height: 60px;
+    
+    row-gap: 0;
+    column-gap: 12px;
   }
 
   /* Show hamburger button */
@@ -268,7 +263,7 @@
     display: block;
   }
 
-  /* Hide main nav until hamburger is opened */
+  /* Hide nav links until hamburger is opened */
   .nav-links {
     display: none;
     width: 100%;
@@ -280,12 +275,12 @@
     padding-top: 8px;
   }
 
-  /* JS adds .is-open when hamburger is clicked */
+  /* JS adds .is-open when menu is opened */
   .nav-links.is-open {
     display: flex;
   }
 
-  /* Make links and dropdown buttons full width */
+  /* Stack links and dropdown buttons full width */
   #navigate .nav-links > a,
   #navigate .nav-dropbtn {
     display: block;
@@ -295,18 +290,18 @@
     font-size: 1rem;
   }
 
-  /* Each dropdown becomes full width */
+  /* Each dropdown takes full width */
   .nav-dropdown {
     display: block;
     width: 100%;
   }
 
-  /* Needed so arrow can be placed on right side */
+  /* Needed so arrow can sit on right edge */
   .nav-dropbtn {
     position: relative;
   }
 
-  /* Mobile/tablet arrow positioning */
+  /* Mobile / tablet dropdown arrow */
   .nav-dropbtn::after {
     content: "▾";
     position: absolute;
@@ -320,7 +315,7 @@
     transform: rotate(180deg);
   }
 
-  /* Turn dropdown panel into an inline stacked section */
+  /* Turn dropdown panel into stacked inline section */
   .nav-dropmenu {
     position: static;
     min-width: 0;
@@ -341,12 +336,12 @@
     box-shadow: none;
   }
 
-  /* JS adds .is-open to show active dropdown */
+  /* JS adds .is-open to active dropdown */
   .nav-dropdown.is-open .nav-dropmenu {
     display: block;
   }
 
-  /* Indent submenu links slightly */
+  /* Slight indent for submenu links */
   #navigate .nav-dropmenu a {
     display: block;
     padding: 8px 0 8px 14px;
