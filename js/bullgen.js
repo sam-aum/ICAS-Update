@@ -1,39 +1,28 @@
-document.addEventListener("DOMContentLoaded", () => {
-  /* =======================================
-     GET PAGE ELEMENTS AND RAW DATA
-  ======================================= */
+const mount = document.getElementById("bulletinsMount");
+const pageTitle = document.getElementById("bulletinsPageTitle");
+const pageData = window.bulletinsPageData;
+const withRoot = window.withRoot || ((path) => path);
 
-  const mount = document.getElementById("bulletinsMount");
-  const raw = document.getElementById("bulletinsData")?.textContent || "";
-
-  if (!mount) return;
-
+if (!mount) {
+  console.error("No #bulletinsMount element found.");
+} else if (!pageData || !Array.isArray(pageData.items)) {
+  console.error("bulletinsPageData missing or invalid.");
+} else {
   const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
   ];
 
+  if (pageTitle && pageData.title) {
+    pageTitle.textContent = pageData.title;
+  }
 
-  /* =======================================
-     PARSE BULLETIN CODE
-     Expected format: b260222a
-  ======================================= */
+  if (pageData.title) {
+    document.title = `ICAS ${pageData.title}`;
+  }
 
   function parseCode(code) {
-    const match = code.match(
-      /^([a-zA-Z])(\d{2})(\d{2})(\d{2})([a-zA-Z0-9]+)$/
-    );
-
+    const match = code.match(/^([a-zA-Z])(\d{2})(\d{2})(\d{2})([a-zA-Z0-9]+)$/);
     if (!match) return null;
 
     const prefix = match[1];
@@ -47,9 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const dt = new Date(fullYear, monthIndex, day);
 
-    /* Make sure the date is valid */
     if (
-      isNaN(dt.getTime()) ||
+      Number.isNaN(dt.getTime()) ||
       dt.getFullYear() !== fullYear ||
       dt.getMonth() !== monthIndex ||
       dt.getDate() !== day
@@ -57,77 +45,39 @@ document.addEventListener("DOMContentLoaded", () => {
       return null;
     }
 
-    const href = `/${fullYear}/${fullYear}${prefix}/${code}.html`;
-
     return {
       code,
       dt,
-      href
+      href: withRoot(`/${fullYear}/${fullYear}${prefix}/${code}.html`)
     };
   }
-
-
-  /* =======================================
-     FORMAT DATE FOR DISPLAY
-     Example: February 22, 2026
-  ======================================= */
 
   function prettyDate(dt) {
     const month = monthNames[dt.getMonth()];
     const day = String(dt.getDate()).padStart(2, "0");
     const year = dt.getFullYear();
-
     return `${month} ${day}, ${year}`;
   }
 
+  const items = pageData.items
+    .map((item) => {
+      if (typeof item.code !== "string" || typeof item.titleHtml !== "string") {
+        return null;
+      }
 
-  /* =======================================
-     READ AND CLEAN RAW BULLETIN LINES
-  ======================================= */
+      const parsed = parseCode(item.code);
+      if (!parsed) return null;
 
-  const lines = raw
-    .split("\n")
-    .map(line => line.trim())
-    .filter(line => line && !line.startsWith("#"));
-
-
-  /* =======================================
-     CONVERT RAW LINES INTO BULLETIN OBJECTS
-  ======================================= */
-
-  const items = [];
-
-  for (const line of lines) {
-    const parts = line.split("|").map(part => part.trim());
-
-    const code = parts[0];
-    const titleHtml = parts.slice(1).join(" | ");
-
-    if (!code || !titleHtml) continue;
-
-    const parsed = parseCode(code);
-    if (!parsed) continue;
-
-    items.push({
-      ...parsed,
-      titleHtml
-    });
-  }
-
-
-  /* =======================================
-     SORT NEWEST TO OLDEST
-  ======================================= */
-
-  items.sort((a, b) => b.dt - a.dt);
-
-
-  /* =======================================
-     RENDER BULLETIN ITEMS
-  ======================================= */
+      return {
+        ...parsed,
+        href: item.href || parsed.href,
+        titleHtml: item.titleHtml
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.dt - a.dt);
 
   mount.innerHTML = "";
-  mount.classList.add("bulletin-feed-list");
 
   for (const item of items) {
     const li = document.createElement("li");
@@ -142,4 +92,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mount.appendChild(li);
   }
-});
+}
