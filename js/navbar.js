@@ -1,15 +1,43 @@
 /* ========================================
    NAVBAR SCRIPT
+   Builds the navigation bar, dropdowns,
+   and mobile menu behavior
 ======================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+
+  /* ========================================
+     FIND NAVBAR CONTAINER
+     The navbar will be injected into this element
+  ======================================== */
+
   const navHost = document.getElementById("navigate");
   if (!navHost) return;
+
+
+  /* ========================================
+     ROOT PATH HELPERS
+     Allows links to work both locally
+     and on the live website
+  ======================================== */
 
   const SITE_ROOT = window.SITE_ROOT || "";
   const withRoot = window.withRoot || ((path) => `${SITE_ROOT}${path}`);
 
+
+  /* ========================================
+     MOBILE BREAKPOINT
+     Must match the breakpoint used in CSS
+  ======================================== */
+
   const mobileBreakpoint = 900;
+
+
+  /* ========================================
+     NAVIGATION DATA
+     Defines all top links and dropdown groups
+  ======================================== */
 
   const navData = {
     top: [
@@ -66,11 +94,27 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
   };
 
+
+  /* ========================================
+     BUILD TOP-LEVEL LINKS
+     Creates regular links with no dropdown
+  ======================================== */
+
   function buildTopLinks(links) {
-    return links.map((item) => `<a href="${item.href}">${item.label}</a>`).join("");
+    return links
+      .map((item) => `<a href="${item.href}">${item.label}</a>`)
+      .join("");
   }
 
+
+  /* ========================================
+     BUILD ONE DROPDOWN GROUP
+     Creates the button and dropdown menu
+     for one navigation section
+  ======================================== */
+
   function buildDropdown(group, index) {
+
     const itemsHTML = group.items
       .map((item) => `<a role="menuitem" href="${item.href}">${item.label}</a>`)
       .join("");
@@ -93,11 +137,26 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
+
+  /* ========================================
+     BUILD ALL DROPDOWN GROUPS
+  ======================================== */
+
   function buildDropdowns(groups) {
-    return groups.map((group, index) => buildDropdown(group, index)).join("");
+    return groups
+      .map((group, index) => buildDropdown(group, index))
+      .join("");
   }
 
+
+  /* ========================================
+     BUILD COMPLETE NAVBAR HTML
+     Combines logo, toggle button, dropdowns,
+     and top-level links into one navbar
+  ======================================== */
+
   function buildNavbarHTML(data) {
+
     const dropdownHTML = buildDropdowns(data.groups);
     const topLinksHTML = buildTopLinks(data.top);
 
@@ -129,12 +188,29 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
+
+  /* ========================================
+     INSERT NAVBAR INTO PAGE
+  ======================================== */
+
   navHost.innerHTML = buildNavbarHTML(navData);
+
+
+  /* ========================================
+     FIND GENERATED NAV ELEMENTS
+     These are created after the HTML is injected
+  ======================================== */
 
   const toggle = navHost.querySelector(".nav-toggle");
   const primaryNav = navHost.querySelector("#primary-nav");
   const dropdownButtons = navHost.querySelectorAll(".nav-dropbtn");
   const dropdowns = navHost.querySelectorAll(".nav-dropdown");
+
+
+  /* ========================================
+     CLOSE ALL DROPDOWNS
+     Used when switching menus or closing nav
+  ======================================== */
 
   function closeAllDropdowns() {
     dropdowns.forEach((dropdown) => {
@@ -146,6 +222,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
+  /* ========================================
+     OPEN MAIN MOBILE MENU
+  ======================================== */
+
   function openMainMenu() {
     if (!primaryNav || !toggle) return;
 
@@ -154,6 +235,11 @@ document.addEventListener("DOMContentLoaded", () => {
     toggle.setAttribute("aria-label", "Close navigation menu");
     toggle.textContent = "✕";
   }
+
+
+  /* ========================================
+     CLOSE MAIN MOBILE MENU
+  ======================================== */
 
   function closeMainMenu() {
     if (!primaryNav || !toggle) return;
@@ -166,13 +252,27 @@ document.addEventListener("DOMContentLoaded", () => {
     closeAllDropdowns();
   }
 
+
+  /* ========================================
+     CHECK MOBILE LAYOUT
+     Returns true when viewport is at or below
+     the mobile/tablet breakpoint
+  ======================================== */
+
   function isMobileLayout() {
     return window.innerWidth <= mobileBreakpoint;
   }
 
+
+  /* ========================================
+     MOBILE TOGGLE BUTTON
+     Opens and closes the main menu
+  ======================================== */
+
   if (toggle && primaryNav) {
     toggle.addEventListener("click", () => {
       const isOpen = primaryNav.classList.contains("is-open");
+
       if (isOpen) {
         closeMainMenu();
       } else {
@@ -180,6 +280,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+
+  /* ========================================
+     MOBILE DROPDOWN BUTTONS
+     On mobile/tablet, tap to open one dropdown
+     at a time
+  ======================================== */
 
   dropdownButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -199,11 +306,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+
+  /* ========================================
+     WINDOW RESIZE HANDLER
+     If screen becomes desktop size, reset
+     the mobile menu state
+  ======================================== */
+
   window.addEventListener("resize", () => {
     if (!isMobileLayout()) {
       closeMainMenu();
     }
   });
+
+
+  /* ========================================
+     CLICK OUTSIDE NAVBAR
+     Close the mobile menu when clicking
+     anywhere outside the navigation
+  ======================================== */
 
   document.addEventListener("click", (event) => {
     if (navHost.contains(event.target)) return;
@@ -212,4 +333,5 @@ document.addEventListener("DOMContentLoaded", () => {
       closeMainMenu();
     }
   });
+
 });
