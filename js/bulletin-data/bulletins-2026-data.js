@@ -2,6 +2,11 @@ window.bulletinsPageData = {
   year: "2026",
   title: "Bulletins - 2026",
   items: [
+    
+    {
+      code: "b260309a",
+      titleHtml: 'Matthew Kroenig to address VIRTUAL <span class="ia">ICAS</span> Spring Symposium <span class="ia">Libertas</span>: US Foreign Policy and World Affairs'
+    },
     {
       code: "b260222a",
       titleHtml: 'Yoon Seo Choi appointed <span class="iab">ICAS</span> Intern'
@@ -9,6 +14,10 @@ window.bulletinsPageData = {
     {
       code: "b260219a",
       titleHtml: 'Hee Jae Jeong appointed <span class="iab">ICAS</span> Intern'
+    },
+    {
+      code: "b260213a",
+      titleHtml: 'James M Lindsay to address VIRTUAL <span class="ia">ICAS</span> Winter Symposium <span class="ia">Lux</span>: US Foreign Policy and World Affairs'
     },
     {
       code: "b260207a",

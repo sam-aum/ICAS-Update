@@ -5,91 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ICAS November 22, 2025 Bulletin</title>
 
-    <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/typography.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/bulletins.css">
-  <link rel="stylesheet" href="css/navbar.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/bulletins.css">
+  <link rel="stylesheet" href="../../css/navbar.css">
 </head>
 
 <body>
-<!-- =======================================
-      SITE NAVIGATION
-      Filled by navbar.js
-======================================== -->
+  <!-- =======================================
+       SITE NAVIGATION
+  ======================================== -->
   <div id="navigate"></div>
 
-
-<!-- =======================================
+  <!-- =======================================
        MAIN PAGE CONTENT
-======================================== -->
+  ======================================== -->
   <main id="main" class="bulletin-page">
-    <!-- Bulletin Header Script -->
     <script type="text/javascript" src="/bullhead.js"></script>
 
     <article class="bulletin-card">
 
-      <!-- Date -->
+      <!-- Top date -->
       <p class="bulletin-date">November 22, 2025</p>
 
-      <!-- Hero / Header -->
+      <!-- Hero -->
       <section class="bulletin-hero">
-        <img
-          src="/bios/takemi_ke.png"
-          width="180"
-          alt="The Hon Keizo Takemi"
-          class="bulletin-speaker-image"
-        >
-
-        <h1 class="bulletin-title">The Hon Keizo Takemi</h1>
-
-        <p class="bulletin-subtitle">
-          Former Minister of Health, Labour and Welfare, Japan<br>
-          Senior Fellow, Japan Center for International Exchange (JCIE)<br>
-          Chair, Asian Population and Development Association (APDA)
-        </p>
-
-        <p class="bulletin-format">Virtual Address</p>
-
-        <h2 class="bulletin-theme">
-          Japan with Prime Minister Sanae Takaichi
-        </h2>
-
-        <p class="bulletin-series">
-          <span class="iab">ICAS</span> Winter Symposium <span class="iab">Libertas</span> 2026<br>
-          The Korean Peninsula Issues and US National Security
-        </p>
-
-        <p class="bulletin-topic">
-          US National Security and World Affairs
-        </p>
-
-        <p class="bulletin-event-time">
-          January 13, 2026 · 7:00 PM – 8:15 PM EST · Washington, DC
-        </p>
-
-        <div class="bulletin-registration">
-          <a
-            href="https://events.humanitix.com/keizo-takemi-icas"
-            class="register-button"
+        <div class="bulletin-hero-image-wrap">
+          <img
+            src="../../images/people/takemi_ke.png"
+            alt="The Hon Keizo Takemi"
+            class="bulletin-speaker-image"
           >
-            On-line Registration
-          </a>
-          <p class="registration-note">(Access Code to Registrants Only)</p>
+        </div>
+
+        <div class="bulletin-hero-text">
+          <p class="bulletin-label">Featured Speaker</p>
+
+          <h1 class="bulletin-title">The Hon Keizo Takemi</h1>
+
+          <p class="bulletin-subtitle">
+            Former Minister of Health, Labour and Welfare, Japan<br>
+            Senior Fellow, Japan Center for International Exchange (JCIE)<br>
+            Chair, Asian Population and Development Association (APDA)
+          </p>
+
+          <p class="bulletin-format">Virtual Address</p>
+
+          <h2 class="bulletin-theme">
+            Japan with Prime Minister Sanae Takaichi
+          </h2>
+
+          <p class="bulletin-series">
+            <span class="iab">ICAS</span> Winter Symposium <span class="iab">Libertas</span> 2026<br>
+            The Korean Peninsula Issues and US National Security
+          </p>
         </div>
       </section>
 
-      <!-- Bulletin Body -->
+      <!-- Event details -->
+      <section class="bulletin-details">
+        <div class="bulletin-detail-box">
+          <p class="detail-label">Topic</p>
+          <p class="detail-value">US National Security and World Affairs</p>
+        </div>
+
+        <div class="bulletin-detail-box">
+          <p class="detail-label">Date & Time</p>
+          <p class="detail-value">January 13, 2026 · 7:00 PM – 8:15 PM EST</p>
+        </div>
+
+        <div class="bulletin-detail-box">
+          <p class="detail-label">Location</p>
+          <p class="detail-value">Washington, DC</p>
+        </div>
+      </section>
+
+      <!-- Registration -->
+      <section class="bulletin-registration">
+        <a
+          href="https://events.humanitix.com/keizo-takemi-icas"
+          class="register-button"
+        >
+          Register Online
+        </a>
+        <p class="registration-note">Access code provided to registrants only.</p>
+      </section>
+
+      <!-- Body -->
       <section class="bulletin-body">
         <p>Dear Friend,</p>
 
         <p>
           We are pleased to share with you that The Hon Keizo Takemi will address the
           <span class="ia">ICAS</span> Winter Symposium <span class="ia">Libertas</span> 2026
-          with a special emphasis on "Japan with Prime Minister Sanae Takaichi:
-          US National Security and World Affairs".
+          with a special emphasis on “Japan with Prime Minister Sanae Takaichi:
+          US National Security and World Affairs”.
         </p>
 
         <p>
@@ -119,7 +132,7 @@
         <p>Thank you.</p>
       </section>
 
-      <!-- Signature Script -->
+      <!-- Signature -->
       <div class="bulletin-signature">
         <script type="text/javascript" src="/bullsig.js"></script>
       </div>
@@ -127,12 +140,11 @@
     </article>
   </main>
 
-<!-- =======================================
-      PAGE SCRIPTS
-======================================== -->
-<script defer src="js/navbar.js"></script>
-<script src="js/bullgen.js"></script>
-<script src="js/bullarchive.js"></script>
-
+  <!-- =======================================
+       PAGE SCRIPTS
+  ======================================== -->
+  <script defer src="../../js/navbar.js"></script>
+  <script src="../../js/bullgen.js"></script>
+  <script src="../../js/bullarchive.js"></script>
 </body>
 </html>
