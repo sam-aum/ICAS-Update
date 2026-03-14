@@ -2,7 +2,7 @@ window.bulletinsPageData = {
   year: "2026",
   title: "Bulletins - 2026",
   items: [
-    
+
     {
       code: "b260309a",
       titleHtml: 'Matthew Kroenig to address VIRTUAL <span class="ia">ICAS</span> Spring Symposium <span class="ia">Libertas</span>: US Foreign Policy and World Affairs'
