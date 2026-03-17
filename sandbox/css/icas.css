@@ -1,0 +1,237 @@
+/* Global reset for consistent alignment */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(https://icasinc.org/icasback.jpg);
+  background-attachment: fixed;
+  font-size: 100%;
+}
+
+#main {
+  width: min(1200px, 90%);
+  margin: 2rem auto;
+  border: 5px ridge #8b4513;
+  background: #faebd7;
+  padding: 40px;
+}
+
+
+
+
+H1 { font: italic bold 2em arial; color: #000000; text-align: center; }
+H2 { font: bold 2em arial; color: #000000; text-align: center; }
+H3 { font: bold 1.5em arial; color: #000000; text-align: center; }
+H4 { font-size: 1.5em; color: #000000; text-align: center; }
+
+.B1 { font: italic bold 2em arial; color: #007700; }
+.B2 { font: italic bold 2em arial; color: #000000; }
+.B3 { font: italic 1em arial; }
+.B4 { font: normal 1em arial; }
+
+.ia  { font: italic 1em arial; }
+.iab { font: italic bold 1em arial; }
+.iag { font: italic bold 1em arial; color: #006400; }
+.i { font-style: italic; }
+
+.ud { font-size: 0.75em; }
+
+
+
+
+/* ============================= */
+/* SITE HEADER */
+/* ============================= */
+
+#icaslogo {
+  background-color: #007700;
+  border: 6px outset;
+  border-color: #888888;
+  display: table;
+  margin: 0 auto;
+}
+
+#icaslogo .logo {
+  padding: 12px;
+  color: #ffffff;
+  background-color: #006600;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#icaslogo {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
+/* ============================= */
+/* PAGE HEADER */
+/* ============================= */
+
+.page-header {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.title-line {
+  width: 450px;
+  margin: 10px auto 30px auto;
+  border: none;
+  border-top: 2px solid #600000;
+}
+
+/* ============================= */
+/* BULLETIN LIST */
+/* ============================= */
+
+.bulletins-table{
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.bulletins-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bulletin-link{
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 16px;
+
+  padding: 10px 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s ease;
+}
+
+.bulletin-link:hover{
+  background: rgba(0,0,0,0.05);
+}
+
+.bulletin-date{
+  font-weight: bold;
+  white-space: nowrap;
+  color: #444;
+  padding-left: 20px;
+}
+
+.bulletin-title{
+  line-height: 1.35;
+  max-width: 80ch;
+  text-wrap: pretty;
+}
+
+.bulletin-sub{
+  display: block;
+  margin-top: 4px;
+}
+
+.bulletin-item{
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.bulletin-item:last-child{
+  border-bottom: none;
+}
+
+/* Mobile layout */
+@media (max-width:560px){
+  .bulletin-link{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================= */
+/* BULLETIN ARCHIVE */
+/* ============================= */
+
+/* Bulletin Archive (year buttons) */
+/* .bulletin-archive {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+#bulletin-archive-links{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.bulletin-year-link{
+  padding: 6px 12px;
+  background: #faebd7;
+  border: 1px solid #8b4513;
+  border-radius: 20px;
+
+  text-decoration: none;
+  color: #600000;
+  font-weight: bold;
+  font-size: 0.9rem;
+
+  transition: all 0.2s ease;
+}
+
+.bulletin-year-link:hover{
+  background: #600000;
+  color: #faebd7;
+  border-color: #600000;
+}
+
+.bulletin-archive h4{
+  margin-bottom: 0.5rem;
+}
+
+.bulletin-year-link.active-year{
+  background: #600000;
+  color: #faebd7;
+  border-color: #600000;
+} */
+
+.bulletin-archive {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+#bulletin-archive-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  margin-top: 1rem;
+}
+
+.bulletin-year-link {
+  color: #600000;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 10px;
+  position: relative;
+}
+
+.bulletin-year-link:not(:last-child)::after {
+  content: "·";
+  position: absolute;
+  right: -3px;
+  color: #8b4513;
+}
+
+.bulletin-year-link:hover,
+.bulletin-year-link.active-year {
+  text-decoration: underline;
+}
