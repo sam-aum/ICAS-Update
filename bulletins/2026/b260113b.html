@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/typography.css">
   <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/bulletins.css">
+  <link rel="stylesheet" href="../../css/bulletin.css">
   <link rel="stylesheet" href="../../css/navbar.css">
 </head>
 
@@ -24,64 +24,58 @@
        MAIN PAGE CONTENT
   ======================================== -->
   <main id="main" class="bulletin-page">
-    <script type="text/javascript" src="/bullhead.js"></script>
 
     <article class="bulletin-card">
 
       <!-- =======================================
-           TOP DATE
+           BULLETIN META
       ======================================== -->
-      <p class="bulletin-date">November 22, 2025</p>
-
-      <!-- =======================================
-           EVENT HEADER
-      ======================================== -->
-      <header class="event-header">
-        <h1 class="event-title">Japan with Prime Minister Sanae Takaichi</h1>
-
-        <p class="event-program">
+      <div class="bulletin-meta">
+        <p class="bulletin-program">
           <span class="iab">ICAS</span> Winter Symposium <span class="iab">Libertas</span> 2026
         </p>
 
-        <div class="event-meta">
-          <p class="event-meta-item">
-            January 13, 2026 · 7:00 PM – 8:15 PM EST
-          </p>
-          <p class="event-meta-item">Virtual Address</p>
-          <p class="event-meta-item">Washington, DC</p>
-        </div>
-      </header>
+        <p class="bulletin-date">Posted November 22, 2025</p>
+      </div>
 
       <!-- =======================================
-           TOPICS / THEMES
+           BULLETIN HEADER
       ======================================== -->
-      <section class="event-topics">
-        <p class="event-topics-text">
+      <header class="bulletin-header">
+        <h1 class="bulletin-title">Japan with Prime Minister Sanae Takaichi</h1>
+
+        <p class="bulletin-subtitle">
           The Korean Peninsula Issues and US National Security<br>
           US National Security and World Affairs
         </p>
-      </section>
+
+        <ul class="bulletin-details">
+          <li class="bulletin-detail">January 13, 2026 · 7:00 PM – 8:15 PM EST</li>
+          <li class="bulletin-detail">Virtual Address</li>
+          <li class="bulletin-detail">Washington, DC</li>
+        </ul>
+      </header>
 
       <!-- =======================================
            SPEAKER SECTION
       ======================================== -->
-      <section class="speaker-section">
-        <div class="speaker-image-wrap">
+      <section class="bulletin-speaker">
+        <div class="bulletin-speaker-image-wrap">
           <img
             src="../../images/people/takemi_ke.png"
             alt="The Hon Keizo Takemi"
-            class="speaker-image"
+            class="bulletin-speaker-image"
           >
         </div>
 
-        <div class="speaker-info">
-          <h2 class="speaker-name">The Hon Keizo Takemi</h2>
+        <div class="bulletin-speaker-info">
+          <h2 class="bulletin-speaker-name">The Hon Keizo Takemi</h2>
 
-          <p class="speaker-roles">
-            Former Minister of Health, Labour and Welfare, Japan<br>
-            Senior Fellow, Japan Center for International Exchange (JCIE)<br>
-            Chair, Asian Population and Development Association (APDA)
-          </p>
+          <ul class="bulletin-speaker-roles">
+            <li>Former Minister of Health, Labour and Welfare, Japan</li>
+            <li>Senior Fellow, Japan Center for International Exchange (JCIE)</li>
+            <li>Chair, Asian Population and Development Association (APDA)</li>
+          </ul>
         </div>
       </section>
 
@@ -91,11 +85,11 @@
       <section class="bulletin-registration">
         <a
           href="https://events.humanitix.com/keizo-takemi-icas"
-          class="register-button"
+          class="bulletin-register-button"
         >
           Register Online
         </a>
-        <p class="registration-note">Access code provided to registrants only.</p>
+        <p class="bulletin-registration-note">Access code provided to registrants only.</p>
       </section>
 
       <!-- =======================================
@@ -141,9 +135,9 @@
       <!-- =======================================
            SIGNATURE
       ======================================== -->
-      <div class="bulletin-signature">
+      <footer class="bulletin-signature">
         <script type="text/javascript" src="/bullsig.js"></script>
-      </div>
+      </footer>
 
     </article>
   </main>
