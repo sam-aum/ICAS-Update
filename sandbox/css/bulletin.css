@@ -1,0 +1,257 @@
+/* ======================================
+   BULLETIN PAGE
+   Styled to match icas.css + navbar.css
+====================================== */
+
+#main.bulletin-page {
+    width: min(1200px, 90%);
+    margin: 2rem auto;
+    border: 5px ridge #8b4513;
+    background: #faebd7;
+    padding: 40px;
+  }
+  
+  
+  /* ======================================
+     BULLETIN CONTENT WRAPPER
+  ====================================== */
+  
+  .bulletin-card {
+    width: min(900px, 100%);
+    margin: 0 auto;
+  }
+  
+  /* ======================================
+   BULLETIN TOP HEADER
+====================================== */
+
+.bulletin-topmark {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .bulletin-topmark-inner {
+    width: min(450px, 100%);
+    margin: 0 auto;
+  }
+  
+  .bulletin-label {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .bulletin-rule {
+    width: 450px;
+    max-width: 100%;
+    margin: 0 auto 1rem auto;
+    border: 0;
+    border-top: 1px solid #000;
+  }
+  
+  .bulletin-org {
+    margin: 0;
+    font: italic 1em Arial, sans-serif;
+    color: #000;
+  }
+
+  
+  /* ======================================
+     DATE
+     More specific so it does not fight
+     with .bulletin-date from bulletin list
+  ====================================== */
+  
+  .bulletin-page .bulletin-date {
+    text-align: right;
+    font: bold 1em Arial, sans-serif;
+    color: #444;
+    margin: 0 0 2rem 0;
+    padding-left: 0;
+  }
+  
+  
+  /* ======================================
+     HEADER
+  ====================================== */
+  
+  .bulletin-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .bulletin-speaker-image {
+    display: block;
+    margin: 0 auto 1.5rem;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid rgba(0,0,0,0.15);
+  }
+  
+  .bulletin-speaker-name {
+    margin: 0 0 0.75rem 0;
+    font: italic bold 2em Arial, sans-serif;
+    color: #000000;
+    text-align: center;
+  }
+  
+  .bulletin-speaker-title {
+    margin: 0 0 1.5rem 0;
+    font: bold 1em Arial, sans-serif;
+    color: #000000;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  .bulletin-event-type {
+    margin: 0 0 1rem 0;
+    font: bold 1.05em Arial, sans-serif;
+    color: #000000;
+    text-align: center;
+  }
+  
+  .bulletin-event-focus {
+    margin: 0 0 1rem 0;
+    font: bold 1.3em Arial, sans-serif;
+    color: #000000;
+    text-align: center;
+  }
+  
+  .bulletin-series {
+    margin: 0 0 1rem 0;
+    font: bold 1.1em Arial, sans-serif;
+    color: #000000;
+    text-align: center;
+    line-height: 1.6;
+  }
+  
+  .bulletin-theme {
+    margin: 0 0 1.25rem 0;
+    font: italic 1.05em Arial, sans-serif;
+    color: #000000;
+    text-align: center;
+  }
+  
+  .bulletin-event-time {
+    margin: 0 0 2rem 0;
+    font: bold 1em Arial, sans-serif;
+    color: #000000;
+    text-align: center;
+    line-height: 1.6;
+  }
+  
+  
+  /* ======================================
+     REGISTRATION
+  ====================================== */
+  
+  .bulletin-registration {
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+  }
+  
+  .bulletin-registration a {
+    color: #600000;
+    text-decoration: underline;
+    font: bold 1.4em Arial, sans-serif;
+  }
+  
+  .bulletin-registration a:visited {
+    color: #600000;
+  }
+  
+  .bulletin-registration a:hover {
+    color: #600000;
+    text-decoration: underline;
+  }
+  
+  .bulletin-registration a:active {
+    color: #ff0000;
+  }
+  
+  .bulletin-registration-note {
+    margin: 0 0 2.5rem 0;
+    font: normal 1em Arial, sans-serif;
+    color: #444;
+    text-align: center;
+  }
+  
+  
+  /* ======================================
+     BODY
+  ====================================== */
+  
+  .bulletin-body {
+    font: normal 1em Arial, sans-serif;
+    color: #000000;
+    line-height: 1.75;
+  }
+  
+  .bulletin-body p {
+    margin: 0 0 1.35rem 0;
+  }
+  
+  .bulletin-body p:last-child {
+    margin-bottom: 0;
+  }
+  
+  
+  /* ======================================
+     SMALL INLINE HELPERS
+     Keeps compatibility with your icas.css
+  ====================================== */
+  
+  .bulletin-body .ia,
+  .bulletin-header .ia {
+    font: italic 1em Arial, sans-serif;
+  }
+  
+  .bulletin-body .iab,
+  .bulletin-header .iab {
+    font: italic bold 1em Arial, sans-serif;
+  }
+  
+  .bulletin-body .iag,
+  .bulletin-header .iag {
+    font: italic bold 1em Arial, sans-serif;
+    color: #006400;
+  }
+  
+  
+  /* ======================================
+     OPTIONAL SPACING FOR SCRIPT OUTPUT
+     Helps old bullhead / bullsig scripts
+  ====================================== */
+  
+  .bulletin-page script + * {
+    margin-top: 0;
+  }
+  
+  
+  /* ======================================
+     MOBILE
+  ====================================== */
+  
+  @media (max-width: 700px) {
+    #main.bulletin-page {
+      padding: 24px;
+    }
+  
+    .bulletin-speaker-name {
+      font-size: 1.6em;
+    }
+  
+    .bulletin-event-focus {
+      font-size: 1.15em;
+    }
+  
+    .bulletin-series,
+    .bulletin-theme,
+    .bulletin-event-time,
+    .bulletin-speaker-title,
+    .bulletin-body {
+      font-size: 0.98em;
+    }
+  
+    .bulletin-registration a {
+      font-size: 1.15em;
+    }
+  }

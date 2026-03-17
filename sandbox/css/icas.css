@@ -159,50 +159,6 @@ H4 { font-size: 1.5em; color: #000000; text-align: center; }
 /* BULLETIN ARCHIVE */
 /* ============================= */
 
-/* Bulletin Archive (year buttons) */
-/* .bulletin-archive {
-  text-align: center;
-  margin: 2rem auto;
-}
-
-#bulletin-archive-links{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 1rem;
-}
-
-.bulletin-year-link{
-  padding: 6px 12px;
-  background: #faebd7;
-  border: 1px solid #8b4513;
-  border-radius: 20px;
-
-  text-decoration: none;
-  color: #600000;
-  font-weight: bold;
-  font-size: 0.9rem;
-
-  transition: all 0.2s ease;
-}
-
-.bulletin-year-link:hover{
-  background: #600000;
-  color: #faebd7;
-  border-color: #600000;
-}
-
-.bulletin-archive h4{
-  margin-bottom: 0.5rem;
-}
-
-.bulletin-year-link.active-year{
-  background: #600000;
-  color: #faebd7;
-  border-color: #600000;
-} */
-
 .bulletin-archive {
   text-align: center;
   margin: 2rem auto;
