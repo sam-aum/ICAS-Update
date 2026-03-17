@@ -255,3 +255,54 @@
       font-size: 1.15em;
     }
   }
+
+
+  /* ======================================
+   BULLETIN SIGNATURE
+====================================== */
+
+.bulletin-signature-wrap {
+    margin-top: 2.5rem;
+  }
+  
+  .bulletin-signature {
+    max-width: 500px;
+    margin: 20px auto 0;
+    text-align: left;
+    line-height: 1.6;
+    font: normal 1em Arial, sans-serif;
+    color: #000;
+  }
+  
+  .bulletin-signature p {
+    margin: 0 0 1rem 0;
+  }
+  
+  .bulletin-signature a {
+    color: #600000;
+    text-decoration: none;
+  }
+  
+  .bulletin-signature a:visited {
+    color: #600000;
+  }
+  
+  .bulletin-signature a:hover {
+    text-decoration: underline;
+  }
+  
+  .bulletin-signature a:active {
+    color: #ff0000;
+  }
+  
+  .bulletin-rights {
+    width: 100%;
+    text-align: right;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  .bulletin-rights p {
+    margin: 0;
+  }
