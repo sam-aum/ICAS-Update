@@ -16,64 +16,85 @@
   <!-- Navigation -->
   <div id="navigate"></div>
 
-
   <!-- Main Content -->
   <main id="main" class="bulletin-page">
-
     <article class="bulletin-card">
 
+      <!-- Header / Meta -->
+      <section class="bulletin-top">
         <script src="js/bullhead.js"></script>
 
-      <!-- Bulletin Date -->
-      <p class="bulletin-date">Posted November 22, 2025</p>
+        <p class="bulletin-date">Posted November 22, 2025</p>
 
-      <p class="bulletin-series">
-        <span class="iab">ICAS</span> Winter Symposium <span class="iab">Libertas</span> 2026<br>
-
-      </p>
-
-      <!-- Bulletin Heading -->
-      <header class="bulletin-header">
-        <img
-          src="images/takemi_ke.png"
-          width="180"
-          alt="The Hon Keizo Takemi"
-          class="bulletin-speaker-image"
-        >
-
-        <h1 class="bulletin-speaker-name">The Hon Keizo Takemi</h1>
-
-        <p class="bulletin-speaker-title">
-          Former Minister of Health, Labour and Welfare, Japan<br>
-          Senior Fellow, Japan Center for International Exchange (JCIE)<br>
-          Chair, Asian Population and Development Association (APDA)
+        <p class="bulletin-series">
+          <span class="iab">ICAS</span> Winter Symposium <span class="iab">Libertas</span> 2026
         </p>
+      </section>
 
-        <p class="bulletin-event-type">Virtual Address</p>
-
-        <p class="bulletin-event-title">
+      <!-- Title + Speaker Unified Header -->
+      <header class="bulletin-identity">
+        <h1 class="bulletin-event-title">
           Japan with Prime Minister Sanae Takaichi
-        </p>
+        </h1>
 
-        <p class="bulletin-subtitles">
-          US National Security and World Affairs <br>
-          The Korean Peninsula Issues and US National Security
-        </p>
+        <div class="bulletin-speaker-block">
+          <img
+            src="images/takemi_ke.png"
+            width="180"
+            alt="The Hon Keizo Takemi"
+            class="bulletin-speaker-image"
+          >
 
-        <p class="bulletin-event-time">
-          January 13, 2026 · 7:00 PM – 8:15 PM EST · Washington, DC
-        </p>
+          <div class="bulletin-speaker-text">
+            <h2 class="bulletin-speaker-name">The Hon Keizo Takemi</h2>
 
-        <p class="bulletin-registration">
-          <a href="https://events.humanitix.com/keizo-takemi-icas">
-            <strong>On-line Registration</strong>
-          </a>
-        </p>
-
-        <p class="bulletin-registration-note">
-          (Access Code to Registrants Only)
-        </p>
+            <p class="bulletin-speaker-title">
+              Former Minister of Health, Labour and Welfare, Japan<br>
+              Senior Fellow, Japan Center for International Exchange (JCIE)<br>
+              Chair, Asian Population and Development Association (APDA)
+            </p>
+          </div>
+        </div>
       </header>
+
+      <!-- Topics -->
+      <section class="bulletin-topics-section">
+        <p class="bulletin-section-label">Topics</p>
+      
+        <ul class="bulletin-topics-list">
+          <li>US National Security and World Affairs</li>
+          <li>The Korean Peninsula Issues and US National Security</li>
+        </ul>
+      </section>
+
+      <!-- Details + Registration -->
+      <section class="bulletin-info-row">
+        <div class="bulletin-details-box">
+          <p class="bulletin-section-label">Event Details</p>
+
+          <p class="bulletin-event-type">Virtual Address</p>
+
+          <p class="bulletin-event-time">
+            January 13, 2026<br>
+            7:00 PM – 8:15 PM EST<br>
+            Washington, DC
+          </p>
+        </div>
+
+        <div class="bulletin-registration-box">
+          <p class="bulletin-section-label">Registration</p>
+
+          <p class="bulletin-registration">
+            <a href="https://events.humanitix.com/keizo-takemi-icas">
+              <strong>On-line Registration</strong>
+            </a>
+          </p>
+
+          <p class="bulletin-registration-note">
+            Access Code to Registrants Only
+          </p>
+        </div>
+      </section>
 
       <!-- Bulletin Body -->
       <section class="bulletin-body">
@@ -112,20 +133,12 @@
 
         <p>Thank you.</p>
 
-          <!-- Signature Script -->
         <script src="js/bullsig.js"></script>
       </section>
-
-
-
 
     </article>
   </main>
 
   <script defer src="js/navbar.js"></script>
-
-
-
-
 </body>
 </html>
