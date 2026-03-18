@@ -48,6 +48,39 @@
 }
 
 
+
+/* =======================================
+   Bull Head
+======================================= */
+.bulletin-topmark {
+  text-align: center;
+  padding-top: 42px;
+  padding-bottom: 26px;
+}
+
+.bulletin-topmark-inner {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.bulletin-label {
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.bulletin-rule {
+  width: min(400px, 50%);
+  margin: 14px auto 18px;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.bulletin-org {
+  margin: 0;
+  text-align: center;
+}
+
+
 /* =======================================
    TOP META
 ======================================= */
