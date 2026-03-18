@@ -54,30 +54,35 @@
 ======================================= */
 .bulletin-topmark {
   text-align: center;
-  padding-top: 42px;
-  padding-bottom: 26px;
+  padding-top: 28px;
+  padding-bottom: 18px;
 }
 
 .bulletin-topmark-inner {
-  max-width: 100%;
+  max-width: 520px;
   margin: 0 auto;
 }
 
 .bulletin-label {
-  margin: 0 0 1rem;
-  text-align: center;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
 }
 
 .bulletin-rule {
-  width: min(400px, 50%);
-  margin: 14px auto 18px;
+  width: min(260px, 45%);
+  margin: 10px auto 12px;
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(0, 0, 0, 0.35);
 }
 
 .bulletin-org {
   margin: 0;
-  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4a433d;
 }
 
 
@@ -311,7 +316,7 @@
   #main.bulletin-page {
     width: 94%;
     padding: 20px;
-    margin: calc(var(--navbar-height) + 24px) auto 3rem;
+    margin: 2rem auto 5rem;
   }
 
   .bulletin-top,
