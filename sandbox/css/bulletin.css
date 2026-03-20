@@ -268,71 +268,74 @@
 
 
 /* =======================================
-   DETAILS + REGISTRATION
+   DETAILS + REGISTRATION PANELS
 ======================================= */
 
 .bulletin-info-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0;
-  width: 100%;
-  max-width: 100%;
-  padding-top: 0;
-  padding-bottom: 0;
-}
+  gap: 24px;
 
-.bulletin-details-box,
-.bulletin-registration-box {
-  min-width: 0;
-  max-width: 100%;
   padding-top: 28px;
   padding-bottom: 28px;
 }
 
-.bulletin-details-box {
-  padding-right: 32px;
-}
-
+/* Shared panel style */
+.bulletin-details-box,
 .bulletin-registration-box {
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  padding-left: 32px;
+  padding: 24px 26px;
+
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.bulletin-event-type,
-.bulletin-event-time,
-.bulletin-registration,
-.bulletin-registration-note {
-  margin: 0 0 0.85rem;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+/* Remove the old divider */
+.bulletin-registration-box {
+  border-left: none;
 }
 
+/* Event type stronger */
 .bulletin-event-type {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  color: #1f1a17;
+  margin-bottom: 0.6rem;
 }
 
+/* Time spacing improvement */
 .bulletin-event-time {
   font-size: 1rem;
-  line-height: 1.75;
-  color: #2c2824;
+  line-height: 1.8;
 }
 
+/* Registration link becomes button-like */
 .bulletin-registration a {
-  color: #5b0000;
+  display: inline-block;
+  padding: 10px 18px;
+
+  background: #5b0000;
+  color: #fff;
   text-decoration: none;
+
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+
+  border: 1px solid #5b0000;
+
+  transition: all 0.2s ease;
 }
 
 .bulletin-registration a:hover {
-  text-decoration: underline;
+  background: #3f0000;
+  border-color: #3f0000;
 }
 
+/* Registration note softer */
 .bulletin-registration-note {
-  margin-bottom: 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #5f5852;
+  margin-top: 0.75rem;
+  font-size: 0.92rem;
+  color: #6a625b;
 }
 
 
