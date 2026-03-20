@@ -153,17 +153,9 @@
   color: #2f2a26;
 }
 
-.bulletin-speaker-title-list li::before {
-  content: "–";
-  position: absolute;
-  left: 0;
-  color: #7a6a5a;
-}
-
-
 .bulletin-identity {
-  padding-top: 34px;
-  padding-bottom: 34px;
+  padding-top: 42px;
+  padding-bottom: 42px;
 }
 
 .bulletin-speaker-block {
